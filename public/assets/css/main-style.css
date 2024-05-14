@@ -12445,8 +12445,8 @@
 }
 
 /*---------------------------------------------
-    Background-color Makes CSS Class 
-    @each <variable> in <expression> { ... } 
+    Background-color Makes CSS Class
+    @each <variable> in <expression> { ... }
 -----------------------------------------------*/
 .bg-primary {
   background-color: var(--primary) !important;
@@ -20077,8 +20077,8 @@ input[type=number] {
   }
 }
 
-.max-w-567 {
-  max-width: 567px;
+.max-w-600 {
+  max-width: 600px;
 }
 
 .question-area .section-title {
@@ -24988,7 +24988,7 @@ input[type=number] {
 
 .send-box {
   border-radius: 15px;
-  padding: 30px;
+  padding: 10px;
   background: var(--white);
   -webkit-box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.15);
           box-shadow: 0px 4px 40px -10px rgba(0, 0, 0, 0.15);
