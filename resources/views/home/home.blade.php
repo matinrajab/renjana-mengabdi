@@ -1,3 +1,7 @@
+@php
+    use App\Helpers\DateFormatter;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="lrt">
 
@@ -74,7 +78,8 @@
                                         <ul class="listing" id="navigation">
                                             <li class="single-list"><a href="#" class="single active">Home</a>
                                             </li>
-                                            <li class="single-list"><a href="about.html" class="single">About</a></li>
+                                            <li class="single-list"><a href="open-volunteers" class="single">Open
+                                                    Volunteer</a></li>
                                             <li class="single-list"><a href="donation.html" class="single">Donation</a>
                                             </li>
                                             <li class="single-list"><a href="blog.html" class="single">Blog</a></li>
@@ -154,14 +159,12 @@
                     <div class="row justify-content-between">
                         <div class="col-xxl-6 col-xl-6 col-lg-6 my-auto">
                             <div class="hero-caption-one mb-20">
-                                <h1 class="title font-700 wow fadeInUp" data-wow-delay="0.1s">Title Lorem ipsum dolor
-                                    sit amet.</h1>
-                                <p class="pera wow fadeInUp" data-wow-delay="0.3s">Subtitle Lorem ipsum dolor sit amet
-                                    consectetur adipisicing elit. Totam qui quaerat atque illo aliquid dolorem sed
-                                    nostrum facilis explicabo odit.</p>
+                                <h1 class="title font-700 wow fadeInUp" data-wow-delay="0.1s"> {{ $home->title }}
+                                </h1>
+                                <p class="pera wow fadeInUp" data-wow-delay="0.3s"> {{ $home->subtitle }} </p>
                                 <div class="d-flex gap-20 flex-wrap">
-                                    <a href="https://google.com" class="btn-primary-fill hero-btn wow fadeInLeft"
-                                        data-wow-delay="0.4s">CTA label</a>
+                                    <a href={{ $home->cta_url }} class="btn-primary-fill hero-btn wow fadeInLeft"
+                                        data-wow-delay="0.4s"> {{ $home->cta_label }} </a>
                                 </div>
                             </div>
                         </div>
@@ -207,38 +210,26 @@
             <div class="container">
                 <div class="row gy-24 justify-content-center">
                     <div class="col-xl-3 col-md-6 col-lg-6">
-                        <div class="helpful-card h-calc  wow fadeInLeft" data-wow-delay="0.2s">
-                            <div class="helpful-card-icon">
-                                <i class="ri-shake-hands-line"></i>
-                            </div>
-                            <div class="helpful-card-caption">
-                                <h4 class="caption-title">Support</h4>
-                                <p class="caption-para">When deciding which charity to donate to, it important to do
-                                    your research.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-md-6 col-lg-6">
                         <div class="helpful-card h-calc  wow fadeInLeft" data-wow-delay="0.0s">
                             <div class="helpful-card-icon">
                                 <i class="ri-graduation-cap-line"></i>
                             </div>
                             <div class="helpful-card-caption">
-                                <h4 class="caption-title">Education</h4>
-                                <p class="caption-para">When deciding which charity to donate to, it important to do
-                                    your research.</p>
+                                <h4 class="caption-title">Divisi Pendidikan</h4>
+                                <p class="caption-para">Berfokus untuk mengedukasi, menunjang, dan meningkatkan
+                                    kualitas pendidikan warga setempat khususnya pada sekolah dasar.</p>
                             </div>
                         </div>
                     </div>
                     <div class="col-xl-3 col-md-6 col-lg-6">
-                        <div class="helpful-card h-calc wow fadeInRight" data-wow-delay="0.0s">
+                        <div class="helpful-card h-calc  wow fadeInLeft" data-wow-delay="0.2s">
                             <div class="helpful-card-icon">
-                                <i class="ri-user-line"></i>
+                                <i class="ri-heart-pulse-line"></i>
                             </div>
                             <div class="helpful-card-caption">
-                                <h4 class="caption-title">Volunteers</h4>
-                                <p class="caption-para">When deciding which charity to donate to, it important to do
-                                    your research.</p>
+                                <h4 class="caption-title">Divisi Kesehatan</h4>
+                                <p class="caption-para">Berfokus pada pemeriksaan, pengedukasian, dan perbaikan
+                                    kesehatan masyarakat.</p>
                             </div>
                         </div>
                     </div>
@@ -248,9 +239,21 @@
                                 <i class="ri-money-dollar-circle-line"></i>
                             </div>
                             <div class="helpful-card-caption">
-                                <h4 class="caption-title">Donations</h4>
-                                <p class="caption-para">When deciding which charity to donate to, it important to do
-                                    your research.</p>
+                                <h4 class="caption-title">Divisi Ekonomi Pariwisata</h4>
+                                <p class="caption-para">Berfokus pada pendampingan dan peningkatan pada kemampuan para
+                                    pelaku UMKM.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-md-6 col-lg-6">
+                        <div class="helpful-card h-calc wow fadeInRight" data-wow-delay="0.0s">
+                            <div class="helpful-card-icon">
+                                <i class="ri-leaf-line"></i>
+                            </div>
+                            <div class="helpful-card-caption">
+                                <h4 class="caption-title">Divisi Lingkungan</h4>
+                                <p class="caption-para">Berfokus untuk menciptakan sebuah gerakan yang berdampak pada
+                                    lingkungan dan kehidupan sosial masyarakat.</p>
                             </div>
                         </div>
                     </div>
@@ -263,26 +266,37 @@
         <section class="urgent-area section-padding2">
             <div class="container">
                 <div class="row justify-content-center">
+                    <div class="col-xl-7">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-50">
+                            <span class="sub-tittle text-capitalize font-600">In urgent cases</span>
+                            <h2 class="title font-700">The best way is to find yourself</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
                     <div class="col-xxl-7 col-xl-8 col-lg-8 p-0 urgent-area-slide xs-p-12">
-                        @for ($i = 0; $i < 5; $i++)
+                        @foreach ($banners as $banner)
                             <!-- Single Slider-->
                             <div class="image-container position-relative h-100">
-                                <img class="w-100 h-100" src="assets/images/gallery/urgent-1.png" alt="img">
-                                <div class="image-overlay-text">
-                                    <div class="flex gap-20 mb-10">
-                                        <div class="map flex gap-10">
-                                            <p class="pera">Title</p>
+                                <a href={{ $banner->lin }}>
+                                    <img class="w-100 h-100" src="files/slide_banner/{{ $banner->image }}"
+                                        alt="img">
+                                    <div class="image-overlay-text">
+                                        <div class="flex gap-20 mb-10">
+                                            <div class="map flex gap-10">
+                                                <p class="pera"> {{ $banner->title }} </p>
+                                            </div>
+                                        </div>
+                                        <div class="overlay-title">
+                                            <h4 class="max-w-600" style="color: white">
+                                                {{ $banner->subtitle }}
+                                            </h4>
                                         </div>
                                     </div>
-                                    <div class="overlay-title">
-                                        <h4 class="max-w-600" style="color: white">
-                                            Subtitle Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum,
-                                            omnis.
-                                        </h4>
-                                    </div>
-                                </div>
+                                </a>
                             </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -297,19 +311,7 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-50">
                             <h2 class="title font-700">About Us</h2>
-                            <p class="pera">Renjana Mengabdi Indonesia adalah yayasan yang didirikan oleh
-                                pemuda-pemudi Indonesia dengan rasa kemanusiaan, jiwa sosial, dan keinginan untuk
-                                memberikan perubahan nyata dalam membangun negeri. Yayasan ini didirikan pada 08 April
-                                2022 dan resmi menjadi yayasan pada 18 Agustus 2022. Tujuannya adalah menjadi wadah bagi
-                                pemuda yang ingin mendedikasikan diri demi kemajuan bangsa melalui pemberdayaan
-                                masyarakat, serta mempersiapkan pemuda agar siap memberdayakan masyarakat sesuai potensi
-                                yang dimiliki.
-                                <br><br>
-                                Renjana Mengabdi Indonesia mengajak pemuda Indonesia untuk berkolaborasi dalam gerakan
-                                kecil kepada masyarakat, khususnya di daerah 3T. Dengan ini, yayasan berharap dapat
-                                menanamkan rasa cinta tanah air, meningkatkan empati terhadap sesama, kepemimpinan, dan
-                                kemandirian, serta mengembangkan kapabilitas diri melalui kegiatan pengabdian
-                                masyarakat.
+                            <p class="pera">{!! nl2br($home->description) !!}
                             </p>
                         </div>
                         <div class="accordion" id="accordionExample">
@@ -321,8 +323,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body">Mewadahi para pemuda untuk dapat menciptakan sebuah
-                                        perubahan nyata melalui kolaborasi dalam membangun negeri.</div>
+                                    <div class="accordion-body"> {{ $home->vision }} </div>
                                 </div>
                             </div>
                             <div class="accordion-item">
@@ -334,24 +335,13 @@
                                 <div id="collapseTwo" class="accordion-collapse collapse"
                                     aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
                                     <ul class="experience listing listing2"
-                                        style="padding-left:17px;padding-bottom:10px">
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">dolor sit amet consectetur. Nibh pellentesque</div>
-                                        </li>
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">Nibh pellentesque lorem30</div>
-                                        </li>
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">Lorem ipsum dolor Nibh pellentesque</div>
-                                        </li>
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">ipsum dolor sit amet consectetur. Nibh pellentesque
-                                            </div>
-                                        </li>
+                                        style="padding-inline:17px;padding-bottom:10px">
+                                        @foreach ($missions as $mission)
+                                            <li class="single-list mb-8">
+                                                <i class="ri-check-line"></i>
+                                                <div class="pera">{{ $mission->content }}</div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -364,24 +354,13 @@
                                 <div id="collapseThree" class="accordion-collapse collapse"
                                     aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                                     <ul class="experience listing listing2"
-                                        style="padding-left:17px;padding-bottom:10px">
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">dolor sit amet consectetur. Nibh pellentesque</div>
-                                        </li>
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">Nibh pellentesque lorem30</div>
-                                        </li>
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">Lorem ipsum dolor Nibh pellentesque</div>
-                                        </li>
-                                        <li class="single-list">
-                                            <i class="ri-check-line"></i>
-                                            <div class="pera">ipsum dolor sit amet consectetur. Nibh pellentesque
-                                            </div>
-                                        </li>
+                                        style="padding-inline:17px;padding-bottom:10px">
+                                        @foreach ($values as $value)
+                                            <li class="single-list mb-8">
+                                                <i class="ri-check-line"></i>
+                                                <div class="pera"> {{ $value->content }} </div>
+                                            </li>
+                                        @endforeach
                                     </ul>
                                 </div>
                             </div>
@@ -404,95 +383,43 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-50">
                             <span class="sub-tittle text-capitalize font-600">Our event</span>
-                            <h2 class="title font-700">Our Upcoming Events</h2>
+                            <h2 class="title font-700">Our Latest Events</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row gy-24">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                        <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.0s">
-                            <div class="event-img position-relative">
-                                <a href="event-details.html"> <img src="assets/images/gallery/event-2.png"
-                                        class="img-fluid w-100" alt="img"> </a>
-                            </div>
-                            <div class="event-info">
-                                <div class="d-flex justify-content-between align-items-center gap-6">
-                                    <div class="event-info-title">
-                                        <div class="flex gap-15 mb-18 align-items-center flex-wrap">
-                                            <div class="date flex gap-12 align-items-center">
-                                                <i class="ri-time-line"></i>
-                                                <p class="info">30 Jun 2023</p>
+                    @foreach ($events as $event)
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
+                            <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.0s">
+                                <div class="event-img position-relative">
+                                    <a href="events/{{ $event->id }}"> <img src="files/event/{{ $event->image }}"
+                                            class="img-fluid w-100" alt="img"> </a>
+                                </div>
+                                <div class="event-info">
+                                    <div class="d-flex justify-content-between align-items-center gap-6">
+                                        <div class="event-info-title">
+                                            <div class="flex gap-15 mb-18 align-items-center flex-wrap">
+                                                <div class="date flex gap-12 align-items-center">
+                                                    <i class="ri-calendar-check-line"></i>
+                                                    <p class="info">
+                                                        {{ DateFormatter::startToEnd($event->start_date, $event->end_date) }}
+                                                    </p>
+                                                </div>
+                                                <div class="map flex gap-12 align-items-center">
+                                                    <i class="ri-map-pin-line"></i>
+                                                    <p class="info"> {{ $event->location }} </p>
+                                                </div>
                                             </div>
-                                            <div class="map flex gap-12 align-items-center">
-                                                <i class="ri-map-pin-line"></i>
-                                                <p class="info">South . Korea</p>
-                                            </div>
+                                            <h4><a class="title text-capitalize" href="events/{{ $event->id }}">
+                                                    {{ $event->name }} </a></h4>
                                         </div>
-                                        <h4><a class="title text-capitalize" href="event-details.html">Free medical
-                                                camping</a></h4>
+                                        <a href="events/{{ $event->id }}" class="btn-arrow"><i
+                                                class="ri-arrow-right-line"></i></a>
                                     </div>
-                                    <a href="event-details.html" class="btn-arrow"><i
-                                            class="ri-arrow-right-line"></i></a>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                        <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.1s">
-                            <div class="event-img position-relative">
-                                <a href="event-details.html"> <img src="assets/images/gallery/event-3.png"
-                                        class="img-fluid w-100" alt="img"> </a>
-                            </div>
-                            <div class="event-info">
-                                <div class="d-flex justify-content-between align-items-center gap-6">
-                                    <div class="event-info-title">
-                                        <div class="flex gap-15 mb-18 align-items-center flex-wrap">
-                                            <div class="date flex gap-12 align-items-center">
-                                                <i class="ri-time-line"></i>
-                                                <p class="info">30 Jun 2023</p>
-                                            </div>
-                                            <div class="map flex gap-12 align-items-center">
-                                                <i class="ri-map-pin-line"></i>
-                                                <p class="info">South . Korea</p>
-                                            </div>
-                                        </div>
-                                        <h4><a class="title text-capitalize" href="event-details.html">Free medical
-                                                camping</a></h4>
-                                    </div>
-                                    <a href="event-details.html" class="btn-arrow"><i
-                                            class="ri-arrow-right-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                        <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="event-img position-relative">
-                                <a href="event-details.html"> <img src="assets/images/gallery/event-2.png"
-                                        class="img-fluid w-100" alt="img"> </a>
-                            </div>
-                            <div class="event-info">
-                                <div class="d-flex justify-content-between align-items-center gap-6">
-                                    <div class="event-info-title">
-                                        <div class="flex gap-15 mb-18 align-items-center flex-wrap">
-                                            <div class="date flex gap-12 align-items-center">
-                                                <i class="ri-time-line"></i>
-                                                <p class="info">30 Jun 2023</p>
-                                            </div>
-                                            <div class="map flex gap-12 align-items-center">
-                                                <i class="ri-map-pin-line"></i>
-                                                <p class="info">South . Korea</p>
-                                            </div>
-                                        </div>
-                                        <h4><a class="title text-capitalize" href="event-details.html">Free medical
-                                                camping</a></h4>
-                                    </div>
-                                    <a href="event-details.html" class="btn-arrow"><i
-                                            class="ri-arrow-right-line"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
@@ -626,88 +553,37 @@
                     </div>
                 </div>
                 <div class="row gy-24">
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                        <div class="single-blog h-calc wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="blog-img position-relative">
-                                <a href="blog-details.html"> <img src="assets/images/gallery/blog-1.png"
-                                        class="img-fluid w-100" alt="img"> </a>
-                            </div>
-                            <div class="blog-info">
-                                <div class="blog-info-title">
-                                    <div class="flex gap-16 align-items-center">
-                                        <div class="user flex gap-10 align-items-center">
-                                            <i class="ri-user-line"></i>
-                                            <p class="info">By: admin</p>
-                                        </div>
-                                        <div class="donate flex gap-10 align-items-center">
-                                            <i class="ri-chat-3-line"></i>
-                                            <p class="info">Donation</p>
+                    @foreach ($blogs as $blog)
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
+                            <div class="single-blog wow fadeInUp" data-wow-delay="0.2s">
+                                <a href="blogs/{{ $blog->id }}">
+                                    <div class="position-relative">
+                                        <img src="files/blog/{{ $blog->image }}" class="img-fluid w-100"
+                                            alt="img">
+                                    </div>
+                                    <div class="blog-info">
+                                        <div class="blog-info-title">
+                                            <div class="flex gap-16 align-items-center">
+                                                <div class="user flex gap-10 align-items-center">
+                                                    <i class="ri-user-line"></i>
+                                                    <p class="info">By: {{ $blog->author }}</p>
+                                                </div>
+                                                <div class="donate flex gap-10 align-items-center">
+                                                    <i class="ri-calendar-check-line"></i>
+                                                    <p class="info">
+                                                        {{ DateFormatter::date($blog->publication_date) }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <h4 class="title text-capitalize">
+                                                {{ $blog->title }} </h4>
+                                            <p class="subtitle">{!! nl2br(substr($blog->content, 0, 100)) !!}...</p>
                                         </div>
                                     </div>
-                                    <h4 class="title text-capitalize"><a href="blog-details.html">We assure you that
-                                            your donation will be
-                                            used wisely.</a></h4>
-                                    <p class="subtitle">We understand that there are many people organization The
-                                        seeking support,</p>
-                                </div>
+                                </a>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                        <div class="single-blog h-calc wow fadeInUp" data-wow-delay="0.0s">
-                            <div class="blog-img position-relative">
-                                <a href="blog-details.html"> <img src="assets/images/gallery/blog-2.png"
-                                        class="img-fluid w-100" alt="img"> </a>
-
-                            </div>
-                            <div class="blog-info">
-                                <div class="blog-info-title">
-                                    <div class="flex gap-16 align-items-center">
-                                        <div class="user flex gap-10 align-items-center">
-                                            <i class="ri-user-line"></i>
-                                            <p class="info">By: admin</p>
-                                        </div>
-                                        <div class="donate flex gap-10 align-items-center">
-                                            <i class="ri-chat-3-line"></i>
-                                            <p class="info">Donation</p>
-                                        </div>
-                                    </div>
-                                    <h4 class="title text-capitalize"><a href="blog-details.html">We assure you that
-                                            your donation will be
-                                            used wisely.</a></h4>
-                                    <p class="subtitle">We understand that there are many people organization The
-                                        seeking support,</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                        <div class="single-blog h-calc wow fadeInUp" data-wow-delay="0.2s">
-                            <div class="blog-img position-relative">
-                                <a href="blog-details.html"> <img src="assets/images/gallery/blog-3.png"
-                                        class="img-fluid w-100" alt="img"> </a>
-                            </div>
-                            <div class="blog-info">
-                                <div class="blog-info-title">
-                                    <div class="flex gap-16 align-items-center">
-                                        <div class="user flex gap-10 align-items-center">
-                                            <i class="ri-user-line"></i>
-                                            <p class="info">By: admin</p>
-                                        </div>
-                                        <div class="donate flex gap-10 align-items-center">
-                                            <i class="ri-chat-3-line"></i>
-                                            <p class="info">Donation</p>
-                                        </div>
-                                    </div>
-                                    <h4 class="title text-capitalize"><a href="blog-details.html">We assure you that
-                                            your donation will be
-                                            used wisely.</a></h4>
-                                    <p class="subtitle">We understand that there are many people organization The
-                                        seeking support,</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>

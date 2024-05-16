@@ -1,3 +1,7 @@
+@php
+    use App\Helpers\DateFormatter;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="lrt">
 
@@ -27,18 +31,18 @@
     <meta name="twitter:image" content="www.Charitfix.com">
     <meta name="twitter:card" content="summary">
     <title>Charitfix - Charity & Donation HTML Template</title>
-    <link rel="icon" type="image/x-icon" sizes="20x20" href="assets/images/icon/favicon.png">
+    <link rel="icon" type="image/x-icon" sizes="20x20" href="{{ asset('assets') }}/images/icon/favicon.png">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-5.3.0.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/bootstrap-5.3.0.min.css">
     <!-- fonts & icon -->
-    <link rel="stylesheet" type="text/css" href="assets/css/remixicon.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/remixicon.css">
     <!-- Plugin -->
-    <link rel="stylesheet" type="text/css" href="assets/css/plugin.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/plugin.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/main-style.css">
     <!-- RTL CSS::When Need RTL Uncomments File -->
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/rtl.css"> -->
 </head>
 
 <body>
@@ -52,12 +56,13 @@
                                 <div class="header-left d-flex align-items-center justify-content-between">
                                     <!-- Logo-->
                                     <div class="logo logo-large light-logo">
-                                        <a href="index.html"><img src="assets/images/logo/logo-renjana-mengabdi.png"
+                                        <a href="index.html"><img
+                                                src="{{ asset('assets') }}/images/logo/logo-renjana-mengabdi.png"
                                                 style="height:80px;" alt="logo"></a>
                                     </div>
                                     <!-- Logo Mobile-->
                                     <div class="logo logo-mobile light-logo">
-                                        <a href="index.html"><img src="assets/images/icon/favicon.png"
+                                        <a href="index.html"><img src="{{ asset('assets') }}/images/icon/favicon.png"
                                                 alt="img"></a>
                                     </div>
                                 </div>
@@ -183,7 +188,7 @@
                         <div class="single-blog">
                             <div class="blog-img">
                                 <a href="javascript:void(0)">
-                                    <img src="assets/images/gallery/blog-16.png" class="img-fluid w-100"
+                                    <img src="{{ asset('files') }}/blog/{{ $blog->image }}" class="img-fluid w-100"
                                         alt="img">
                                 </a>
                             </div>
@@ -192,17 +197,16 @@
                                     <div class="flex gap-16 mb-20 align-items-center">
                                         <div class="user flex gap-10 align-items-center">
                                             <i class="ri-user-line"></i>
-                                            <p class="info">By: author</p>
+                                            <p class="info">{{ "By: $blog->author" }}</p>
                                         </div>
                                         <div class="donate flex gap-10 align-items-center">
                                             <i class="ri-calendar-check-line"></i>
-                                            <p class="info">Sep 11 2023</p>
+                                            <p class="info"> {{ DateFormatter::date($blog->publication_date) }} </p>
                                         </div>
                                     </div>
-                                    <h4 class="title">Title Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                        Dicta, dignissimos.</h4>
+                                    <h4 class="title"> {{ $blog->title }} </h4>
                                     <p class="subtitle">
-                                        {!! nl2br("baris1\nbaris2") !!}
+                                        {!! nl2br($blog->content) !!}
                                     </p>
                                     <div class="divider"></div>
                                     <div class="quote-with-text">
@@ -222,10 +226,12 @@
                                     </div>
                                     <div class="d-flex gap-20">
                                         <div class="blog-multi-img">
-                                            <img src="assets/images/gallery/blog-multi-1.png" alt="image">
+                                            <img src="{{ asset('assets') }}/images/gallery/blog-multi-1.png"
+                                                alt="image">
                                         </div>
                                         <div class="blog-multi-img">
-                                            <img src="assets/images/gallery/blog-multi-2.png" alt="image">
+                                            <img src="{{ asset('assets') }}/images/gallery/blog-multi-2.png"
+                                                alt="image">
                                         </div>
                                     </div>
                                     <div class="donation-content">
@@ -291,7 +297,7 @@
                                         <div class="single-blog h-calc">
                                             <div class="blog-img">
                                                 <a href="blog-details.html">
-                                                    <img src="assets/images/gallery/blog-verti.png"
+                                                    <img src="{{ asset('assets') }}/images/gallery/blog-verti.png"
                                                         class="img-fluid w-100" alt="img">
                                                 </a>
                                             </div>
@@ -323,7 +329,7 @@
                                         <div class="single-blog h-calc">
                                             <div class="blog-img">
                                                 <a href="blog-details.html">
-                                                    <img src="assets/images/gallery/blog-verti.png"
+                                                    <img src="{{ asset('assets') }}/images/gallery/blog-verti.png"
                                                         class="img-fluid w-100" alt="img">
                                                 </a>
                                             </div>
@@ -393,7 +399,7 @@
                             <p class="pera">04 comment</p>
                             <div class="single-comment">
                                 <div class="comment-img">
-                                    <img src="assets/images/gallery/comment-1.png" alt="img">
+                                    <img src="{{ asset('assets') }}/images/gallery/comment-1.png" alt="img">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-name-time">
@@ -411,7 +417,7 @@
                             <div class="divider"></div>
                             <div class="single-comment two">
                                 <div class="comment-img">
-                                    <img src="assets/images/gallery/comment-2.png" alt="img">
+                                    <img src="{{ asset('assets') }}/images/gallery/comment-2.png" alt="img">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-name-time">
@@ -429,7 +435,7 @@
                             <div class="divider"></div>
                             <div class="single-comment three">
                                 <div class="comment-img">
-                                    <img src="assets/images/gallery/comment-3.png" alt="img">
+                                    <img src="{{ asset('assets') }}/images/gallery/comment-3.png" alt="img">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-name-time">
@@ -447,7 +453,7 @@
                             <div class="divider"></div>
                             <div class="single-comment">
                                 <div class="comment-img">
-                                    <img src="assets/images/gallery/comment-4.png" alt="img">
+                                    <img src="{{ asset('assets') }}/images/gallery/comment-4.png" alt="img">
                                 </div>
                                 <div class="comment-info">
                                     <div class="user-name-time">
@@ -523,7 +529,8 @@
                                 <div class="related-box">
                                     <div class="single-post">
                                         <div class="post-img">
-                                            <a href="blog-details.html"><img src="assets/images/gallery/post-1.png"
+                                            <a href="blog-details.html"><img
+                                                    src="{{ asset('assets') }}/images/gallery/post-1.png"
                                                     alt="img"></a>
                                         </div>
                                         <div class="post-info">
@@ -538,7 +545,8 @@
                                     <div class="divider"></div>
                                     <div class="single-post">
                                         <div class="post-img">
-                                            <a href="blog-details.html"><img src="assets/images/gallery/post-2.png"
+                                            <a href="blog-details.html"><img
+                                                    src="{{ asset('assets') }}/images/gallery/post-2.png"
                                                     alt="img"></a>
                                         </div>
                                         <div class="post-info">
@@ -553,7 +561,8 @@
                                     <div class="divider"></div>
                                     <div class="single-post">
                                         <div class="post-img">
-                                            <a href="blog-details.html"><img src="assets/images/gallery/post-3.png"
+                                            <a href="blog-details.html"><img
+                                                    src="{{ asset('assets') }}/images/gallery/post-3.png"
                                                     alt="img"></a>
                                         </div>
                                         <div class="post-info">
@@ -568,7 +577,8 @@
                                     <div class="divider"></div>
                                     <div class="single-post">
                                         <div class="post-img">
-                                            <a href="blog-details.html"><img src="assets/images/gallery/post-4.png"
+                                            <a href="blog-details.html"><img
+                                                    src="{{ asset('assets') }}/images/gallery/post-4.png"
                                                     alt="img"></a>
                                         </div>
                                         <div class="post-info">
@@ -614,7 +624,7 @@
                             <!-- User Box -->
                             <div class="user-box">
                                 <div class="user-img mx-auto">
-                                    <img src="assets/images/gallery/user.png" alt="img">
+                                    <img src="{{ asset('assets') }}/images/gallery/user.png" alt="img">
                                 </div>
                                 <div class="user-info text-center">
                                     <h4 class="title">Jonny Sophia</h4>
@@ -647,25 +657,25 @@
         <div class="gallery-area">
             <div class="gallery-slider d-flex">
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-1.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-1.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-2.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-2.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-3.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-3.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-4.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-4.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-2.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-2.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-3.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-3.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-1.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-1.png" alt="img">
                 </div>
             </div>
         </div>
@@ -681,7 +691,8 @@
                             <div class="header-left d-flex align-items-center justify-content-between">
                                 <!-- Logo-->
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/images/logo/logo-renjana-mengabdi.png"
+                                    <a href="index.html"><img
+                                            src="{{ asset('assets') }}/images/logo/logo-renjana-mengabdi.png"
                                             style="height:80px;" alt="logo"></a>
                                 </div>
                             </div>
@@ -792,7 +803,8 @@
                                     <div class="d-flex gap-20 mb-20 align-items-center">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-1.png" alt="image">
+                                                <img src="{{ asset('assets') }}/images/gallery/project-1.png"
+                                                    alt="image">
                                             </a>
                                         </div>
 
@@ -808,7 +820,8 @@
                                     <div class="d-flex gap-20">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-2.png" alt="image">
+                                                <img src="{{ asset('assets') }}/images/gallery/project-2.png"
+                                                    alt="image">
                                             </a>
                                         </div>
                                         <div class="project-info">
@@ -868,13 +881,13 @@
     <!-- Add an overlay element -->
     <div class="overlay"></div>
     <!-- jquery-->
-    <script src="assets/js/jquery-3.7.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap-5.3.0.min.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery-3.7.0.min.js"></script>
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap-5.3.0.min.js"></script>
     <!-- Plugin -->
-    <script src="assets/js/plugin.js"></script>
+    <script src="{{ asset('assets') }}/js/plugin.js"></script>
     <!-- Main js-->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets') }}/js/main.js"></script>
 </body>
 
 </html>

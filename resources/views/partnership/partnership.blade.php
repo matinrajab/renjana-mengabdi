@@ -135,7 +135,7 @@
                                     class="single">partnership</a></li>
                         </ul>
                     </nav>
-                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">partnership</h1>
+                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s"> {{ $partnership->type }} </h1>
                 </div>
             </div>
         </section>
@@ -148,29 +148,21 @@
                         <!-- Single -->
                         <div class="single-terms mb-30">
                             <h5 class="title font-600">Description</h5>
-                            <p class="pera mb-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia neque
-                                voluptatum dolore nobis error nostrum a delectus molestias adipisci expedita
-                                repudiandae, possimus sed, excepturi optio quis, corrupti fugiat. Nihil distinctio
-                                labore veritatis nemo, qui doloribus esse, praesentium ipsum in eligendi iusto rem
-                                tempora nulla, sed quia maiores at accusamus cumque.</p>
+                            <p class="pera mb-20">{!! nl2br($partnership->description) !!}</p>
                         </div>
                         <div class="single-terms mb-30">
                             <h5 class="title font-600">Benefits</h5>
-                            <p class="pera mb-20">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quia neque
-                                voluptatum dolore nobis error nostrum a delectus molestias adipisci expedita
-                                repudiandae, possimus sed, excepturi optio quis, corrupti fugiat. Nihil distinctio
-                                labore veritatis nemo, qui doloribus esse, praesentium ipsum in eligendi iusto rem
-                                tempora nulla, sed quia maiores at accusamus cumque.</p>
+                            <p class="pera mb-20">{!! nl2br($partnership->benefits) !!}</p>
                         </div>
                         <!-- Single -->
                         <div class="single-terms mb-0">
                             <h5 class="title font-600">Contact Us</h5>
-                            <p class="pera mb-20 text-normal">Phone: 0877123456789</p>
-                            <p class="pera mb-20 text-normal">Email: initTheme@gmail.com</p>
+                            <p class="pera mb-20 text-normal">{{ "Phone: $partnership->contact_person" }}</p>
+                            <p class="pera mb-20 text-normal">{{ "Email: $partnership->contact_email" }}</p>
                         </div>
                         <div class="col-lg-10 mt-10">
-                            <a href="https://wa.me/+6287123456789?text=Halo%20saya%20tertarik%20untuk%20join%20partnership"
-                                class="btn btn-primary-fill">Join Our Partnership</a>
+                            <a href="https://wa.me/{{ $partnership->contact_person }}?text=Halo%20saya%20tertarik%20untuk%20join%20{{ $partnership->type }}"
+                                class="btn btn-primary-fill">Join Our {{ $partnership->type }}</a>
                         </div>
                     </div>
                 </div>

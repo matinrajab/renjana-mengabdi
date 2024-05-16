@@ -1,3 +1,7 @@
+@php
+    use App\Helpers\DateFormatter;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="lrt">
 
@@ -84,10 +88,9 @@
                                                             class="single">Home 03</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="single-list"><a href="about.html" class="single active">Open
-                                                    Volunteer</a></li>
+                                            <li class="single-list"><a href="about.html" class="single">About</a></li>
                                             <li class="single-list"><a href="donation.html"
-                                                    class="single">Donation</a></li>
+                                                    class="single active">Event</a></li>
                                             <li class="single-list"><a href="blog.html" class="single">Blog</a></li>
                                             <li class="single-list">
                                                 <a href="javascript:void(0)" class="single">Pages <i
@@ -166,58 +169,53 @@
                         <ul class="breadcrumb listing">
                             <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
                             <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
-                                    class="single">open volunteer</a></li>
+                                    class="single">Event</a></li>
                         </ul>
                     </nav>
-                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">open volunteer</h1>
+                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">event list</h1>
                 </div>
             </div>
         </section>
         <!-- End-of Breadcrumb Area -->
 
         <!-- donate S t a r t -->
-        <section class="blog-section-two top-bottom-padding">
+        <section class="donate-section top-bottom-padding">
             <div class="container">
                 <div class="row gy-24">
-                    @for ($i = 0; $i < 5; $i++)
+                    @foreach ($events as $event)
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                            <div class="single-blog h-calc wow fadeInLeft" data-wow-delay="0.1s">
-                                <div class="blog-img position-relative">
-                                    <a href="blog-details.html"> <img src="assets/images/gallery/white.jpg"
-                                            class="img-fluid w-100" alt="img"> </a>
-                                    <div class="blog-badge">
-                                        <p class="subtitle">
-                                            type
-                                        </p>
-                                    </div>
+                            <div class="single-donate">
+                                <div class="position-relative">
+                                    <img class="w-100" src="files/event/{{ $event->image }}" alt="img">
                                 </div>
-                                <div class="blog-info">
+                                <div class="donate-info">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="blog-info-title">
-                                            <div class="flex mb-15 gap-16 align-items-center">
-                                                <div class="user flex gap-10 align-items-center">
-                                                    <i class="ri-map-pin-line"></i>
-                                                    <p class="info">Bali</p>
-                                                </div>
-                                                <div class="donate flex gap-10 align-items-center">
-                                                    <i class="ri-calendar-check-line"></i>
-                                                    <p class="info">11 - 12 Sep 2023</p>
+                                        <div class="donate-info-title">
+                                            <h4 class="title text-capitalize"><a href="donation-details.html">
+                                                    {{ $event->name }} </a></h4>
+                                            <p class="subtitle">
+                                                {!! nl2br(substr($event->description, 0, 100)) !!}...
+                                            </p>
+                                            <div class="flex justify-content-between mt-14 mb-20">
+                                                <div class="flex gap-10">
+                                                    <div class="charges">
+                                                        <i class="title ri-map-pin-line"></i>
+                                                    </div>
+                                                    <div class="charges">
+                                                        <h4 class="title"> {{ "$event->location, " }}
+                                                            {{ DateFormatter::startToEnd($event->start_date, $event->end_date) }}
+                                                        </h4>
+                                                    </div>
                                                 </div>
                                             </div>
-                                            <h4 class="title text-capitalize"><a href="blog-details.html">Name Lorem
-                                                    ipsum, dolor sit amet consectetur adipisicing elit.</a></h4>
-                                            <p class="subtitle">
-                                                {{ substr('Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat minima modi est laboriosam. Consequatur, veniam nam temporibus autem aliquam necessitatibus!', 0, 100) }}...
-                                            </p>
-                                            <a href="blog-details.html" class="imp-link">
-                                                More Details <i class="ri-arrow-right-line"></i>
-                                            </a>
+                                            <a href="events/{{ $event->id }}" class="btn donate-btn w-100">More
+                                                Details</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
                 <div class="row">
                     <div class="col-lg-12">
@@ -289,7 +287,7 @@
                                 <nav>
                                     <ul class="listing" id="navigation2">
                                         <li class="single-list"><a href="index.html" class="single">Home</a></li>
-                                        <li class="single-list"><a href="donation.html" class="single">Donation</a>
+                                        <li class="single-list"><a href="donation.html" class="single">Event</a>
                                         </li>
                                         <li class="single-list"><a href="about.html" class="single">About</a></li>
                                         <li class="single-list"><a href="blog.html" class="single">Blog</a></li>

@@ -1,3 +1,7 @@
+@php
+    use App\Helpers\DateFormatter;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="lrt">
 
@@ -86,8 +90,9 @@
                                             </li>
                                             <li class="single-list"><a href="about.html" class="single">About</a></li>
                                             <li class="single-list"><a href="donation.html"
-                                                    class="single active">Event</a></li>
-                                            <li class="single-list"><a href="blog.html" class="single">Blog</a></li>
+                                                    class="single">Donation</a></li>
+                                            <li class="single-list"><a href="blog.html"
+                                                    class="single active">Blog</a></li>
                                             <li class="single-list">
                                                 <a href="javascript:void(0)" class="single">Pages <i
                                                         class="ri-arrow-down-s-line"></i></a>
@@ -165,81 +170,74 @@
                         <ul class="breadcrumb listing">
                             <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
                             <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
-                                    class="single">Event</a></li>
+                                    class="single">Blog </a></li>
                         </ul>
                     </nav>
-                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">event list</h1>
+                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">Latest blog</h1>
                 </div>
             </div>
         </section>
         <!-- End-of Breadcrumb Area -->
 
-        <!-- donate S t a r t -->
-        <section class="donate-section top-bottom-padding">
+        <!-- Blog S t a r t -->
+        <section class="blog-section-three top-bottom-padding">
             <div class="container">
                 <div class="row gy-24">
-                    @for ($i = 0; $i < 5; $i++)
+                    @foreach ($blogs as $blog)
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                            <div class="single-donate h-calc">
-                                <div class="position-relative">
-                                    <img class="w-100" src="assets/images/gallery/donate-1.png" alt="img">
+                            <div class="single-blog h-calc">
+                                <div class="blog-img">
+                                    <a href="blog-details.html" class="img-fluid w-100 h-20">
+                                        <img src="files/blog/{{ $blog->image }}" class="img-fluid w-100 h-20"
+                                            alt="img">
+                                    </a>
                                 </div>
-                                <div class="donate-info">
+                                <div class="blog-info">
                                     <div class="d-flex justify-content-between align-items-center">
-                                        <div class="donate-info-title">
-                                            <h4 class="title text-capitalize"><a href="donation-details.html">Event
-                                                    Name Lorem ipsum dolor sit amet consectetur.</a></h4>
-                                            <p class="subtitle">
-                                                {{ substr(
-                                                    'Description Lorem ipsum dolor sit amet consectetur adipisicing elit. Corrupti laborum perferendis blanditiis accusamus libero facilis nihil ratione tenetur repellendus culpa.',
-                                                    0,
-                                                    100,
-                                                ) }}...
-                                            </p>
-                                            <div class="progress custom-progress-two">
-                                                <div class="progress-bar" style="width: 25%"></div>
-                                            </div>
-                                            <div class="flex justify-content-between mt-14 mb-20">
-                                                <div class="flex gap-10">
-                                                    <div class="charges">
-                                                        <i class="title ri-map-pin-line"></i>
-                                                    </div>
-                                                    <div class="charges">
-                                                        <h4 class="title">Yogyakarta, 6-10 November 2023</h4>
-                                                    </div>
+                                        <div class="blog-info-title">
+                                            <div class="flex mb-15 gap-16 align-items-center">
+                                                <div class="user flex gap-10 align-items-center">
+                                                    <i class="ri-user-line"></i>
+                                                    <p class="info"> {{ "By: $blog->author" }} </p>
+                                                </div>
+                                                <div class="donate flex gap-10 align-items-center">
+                                                    <i class="ri-calendar-check-line"></i>
+                                                    <p class="info">
+                                                        {{ DateFormatter::date($blog->publication_date) }}</p>
                                                 </div>
                                             </div>
-                                            <a href="donate-payment.html" class="btn donate-btn w-100">More
-                                                Details</a>
+                                            <h4 class="title text-capitalize"><a href="blog-details.html">
+                                                    {{ $blog->title }} </a></h4>
+                                            <p class="subtitle">
+                                                {!! nl2br(substr($blog->content, 0, 100)) !!}...
+                                            </p>
                                         </div>
                                     </div>
                                 </div>
+                                <div class="button-section"><a href="blogs/{{ $blog->id }}" class="read-btn">Read
+                                        More</a>
+                                </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <!-- pagination -->
-                        <nav class="pagination-nav">
-                            <ul class="pagination">
-                                <li class="page-item" aria-current="page"><span class="page-link active">1</span>
-                                </li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                                <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                                <li class="page-item">
-                                    <a class="page-link next" href="javascript:void(0)" rel="next"
-                                        aria-label="Next »"><i class="ri-arrow-right-line"></i></a>
-                                </li>
-                            </ul>
-                        </nav>
-                        <!-- End pagination -->
-                    </div>
-                </div>
+                <!-- pagination -->
+                <nav class="pagination-nav">
+                    <ul class="pagination">
+                        <li class="page-item" aria-current="page"><span class="page-link active">1</span></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                        <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                        <li class="page-item">
+                            <a class="page-link next" href="javascript:void(0)" rel="next"
+                                aria-label="Next »"><i class="ri-arrow-right-line"></i></a>
+                        </li>
+                    </ul>
+                </nav>
+                <!-- End pagination -->
             </div>
         </section>
-        <!-- End-of donate -->
+        <!-- End-of Blog -->
 
         <!-- Gallery S t a r t -->
         <div class="gallery-area">
@@ -288,7 +286,7 @@
                                 <nav>
                                     <ul class="listing" id="navigation2">
                                         <li class="single-list"><a href="index.html" class="single">Home</a></li>
-                                        <li class="single-list"><a href="donation.html" class="single">Event</a>
+                                        <li class="single-list"><a href="donation.html" class="single">Donation</a>
                                         </li>
                                         <li class="single-list"><a href="about.html" class="single">About</a></li>
                                         <li class="single-list"><a href="blog.html" class="single">Blog</a></li>

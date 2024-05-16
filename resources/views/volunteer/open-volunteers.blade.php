@@ -1,3 +1,7 @@
+@php
+    use App\Helpers\DateFormatter;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="lrt">
 
@@ -84,11 +88,11 @@
                                                             class="single">Home 03</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="single-list"><a href="about.html" class="single">About</a></li>
+                                            <li class="single-list"><a href="about.html" class="single active">Open
+                                                    Volunteer</a></li>
                                             <li class="single-list"><a href="donation.html"
                                                     class="single">Donation</a></li>
-                                            <li class="single-list"><a href="blog.html"
-                                                    class="single active">Blog</a></li>
+                                            <li class="single-list"><a href="blog.html" class="single">Blog</a></li>
                                             <li class="single-list">
                                                 <a href="javascript:void(0)" class="single">Pages <i
                                                         class="ri-arrow-down-s-line"></i></a>
@@ -166,77 +170,83 @@
                         <ul class="breadcrumb listing">
                             <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
                             <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
-                                    class="single">Blog </a></li>
+                                    class="single">open volunteer</a></li>
                         </ul>
                     </nav>
-                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">Latest blog</h1>
+                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">open volunteer</h1>
                 </div>
             </div>
         </section>
         <!-- End-of Breadcrumb Area -->
 
-        <!-- Blog S t a r t -->
-        <section class="blog-section-three top-bottom-padding">
+        <!-- donate S t a r t -->
+        <section class="blog-section-two top-bottom-padding">
             <div class="container">
                 <div class="row gy-24">
-                    @for ($i = 0; $i < 5; $i++)
+                    @foreach ($openVolunteers as $item)
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                            <div class="single-blog h-calc">
-                                <div class="blog-img">
-                                    <a href="blog-details.html">
-                                        <img src="assets/images/gallery/blog-7.png" class="img-fluid w-100"
-                                            alt="img">
-                                    </a>
+                            <div class="single-blog h-calc wow fadeInLeft" data-wow-delay="0.1s">
+                                <div class="blog-img position-relative">
+                                    <a href="blog-details.html"> <img src="files/volunteer/{{ $item->image }}"
+                                            class="img-fluid w-100" alt="img"> </a>
+                                    <div class="blog-badge">
+                                        <p class="subtitle">
+                                            {{ $item->volunteerType->name }}
+                                        </p>
+                                    </div>
                                 </div>
                                 <div class="blog-info">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="blog-info-title">
                                             <div class="flex mb-15 gap-16 align-items-center">
                                                 <div class="user flex gap-10 align-items-center">
-                                                    <i class="ri-user-line"></i>
-                                                    <p class="info">By: author</p>
+                                                    <i class="ri-map-pin-line"></i>
+                                                    <p class="info"> {{ $item->location }} </p>
                                                 </div>
                                                 <div class="donate flex gap-10 align-items-center">
                                                     <i class="ri-calendar-check-line"></i>
-                                                    <p class="info">Sep 11 2023</p>
+                                                    <p class="info">
+                                                        {{ DateFormatter::startToEnd($item->start_date, $item->end_date) }}
+                                                    </p>
                                                 </div>
                                             </div>
-                                            <h4 class="title text-capitalize"><a href="blog-details.html">Title Lorem
-                                                    ipsum dolor sit amet consectetur adipisicing elit.</a></h4>
+                                            <h4 class="title text-capitalize"><a href="blog-details.html">
+                                                    {{ $item->program_name }} </a></h4>
                                             <p class="subtitle">
-                                                {{ substr(
-                                                    'Content Lorem ipsum dolor sit amet consecteturadipisicing elit. Esse debitis inventore, officiis similique eaquesapiente modi cupiditate porro! Perspiciatis accusamus possimus dolores tenetur labore odit ab laborum ex doloribus odio.',
-                                                    0,
-                                                    200,
-                                                ) }}...
+                                                {{ substr($item->description, 0, 100) }}...
                                             </p>
+                                            <a href="open-volunteers/{{ $item->id }}" class="imp-link">
+                                                More Details <i class="ri-arrow-right-line"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button-section"><a href="blog-details.html" class="read-btn">Read
-                                        More</a>
-                                </div>
                             </div>
                         </div>
-                    @endfor
+                    @endforeach
                 </div>
-                <!-- pagination -->
-                <nav class="pagination-nav">
-                    <ul class="pagination">
-                        <li class="page-item" aria-current="page"><span class="page-link active">1</span></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
-                        <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
-                        <li class="page-item">
-                            <a class="page-link next" href="javascript:void(0)" rel="next"
-                                aria-label="Next »"><i class="ri-arrow-right-line"></i></a>
-                        </li>
-                    </ul>
-                </nav>
-                <!-- End pagination -->
+                <div class="row">
+                    <div class="col-lg-12">
+                        <!-- pagination -->
+                        <nav class="pagination-nav">
+                            <ul class="pagination">
+                                <li class="page-item" aria-current="page"><span class="page-link active">1</span>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="javascript:void(0)">2</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:void(0)">3</a></li>
+                                <li class="page-item"><a class="page-link" href="javascript:void(0)">4</a></li>
+                                <li class="page-item">
+                                    <a class="page-link next" href="javascript:void(0)" rel="next"
+                                        aria-label="Next »"><i class="ri-arrow-right-line"></i></a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <!-- End pagination -->
+                    </div>
+                </div>
             </div>
         </section>
-        <!-- End-of Blog -->
+        <!-- End-of donate -->
 
         <!-- Gallery S t a r t -->
         <div class="gallery-area">

@@ -181,11 +181,7 @@
                     <div class="col-xl-6 col-lg-6">
                         <div class="section-tittle mb-50">
                             <h2 class="title mb-20 font-700">About Us</h2>
-                            <p class="pera">When deciding which charity to donate to, it's important to do your e
-                                search and find one
-                                that aligns with your values and interests. Look for charities that are transparent
-                                preventable
-                                diseases,</p>
+                            <p class="pera">{!! nl2br($company->history) !!}</p>
                         </div>
                     </div>
                     <div class="col-xl-5 col-lg-6">
@@ -218,27 +214,31 @@
                     </div>
                 </div>
                 <div class="row gy-24">
-                    @for ($i = 0; $i < 5; $i++)
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                            <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.0s">
-                                <div class="event-img position-relative">
-                                    <a href="event-details.html"> <img src="assets/images/gallery/event-2.png"
-                                            class="img-fluid w-100" alt="img"> </a>
-                                </div>
-                                <div class="event-info">
-                                    <div class="d-flex justify-content-center align-items-center gap-6">
-                                        <div class="event-info-title">
-                                            <h4 class="title mb-18 text-capitalize">Willy Wonka</h4>
-                                            <div
-                                                class="flex gap-15 align-items-center justify-content-center flex-wrap">
-                                                <p class="info">Frontend Developer</p>
+                    @if ($company)
+                        @foreach ($company->teams as $team)
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
+                                <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.0s">
+                                    <div class="event-img position-relative">
+                                        <a href="event-details.html"> <img src="files/team/{{ $team->image }}"
+                                                class="img-fluid w-100" alt="img"> </a>
+                                    </div>
+                                    <div class="event-info">
+                                        <div class="d-flex justify-content-center align-items-center gap-6">
+                                            <div class="event-info-title">
+                                                <h4
+                                                    class="title mb-18 text-capitalize flex gap-15 align-items-center justify-content-center flex-wrap">
+                                                    {{ $team->name }} </h4>
+                                                <div
+                                                    class="flex gap-15 align-items-center justify-content-center flex-wrap">
+                                                    <p class="info"> {{ $team->position }} </p>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endfor
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </section>
@@ -256,24 +256,25 @@
                     </div>
                 </div>
                 <div class="row gy-24">
-                    @for ($i = 0; $i < 5; $i++)
-                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
-                            <div class="single-blog h-calc wow fadeInUp" data-wow-delay="0.2s">
-                                <div class="position-relative">
-                                    <a href="blog-details.html"> <img src="assets/images/gallery/blog-1.png"
-                                            class="img-fluid w-100" alt="img"> </a>
-                                </div>
-                                <div class="blog-info">
-                                    <div class="blog-info-title">
-                                        <h4 class="title text-capitalize"><a href="blog-details.html">We assure you
-                                                that your donation will be used wisely.</a></h4>
-                                        <p class="subtitle">We understand that there are many people organization The
-                                            seeking support,</p>
+                    @if ($company)
+                        @foreach ($company->achievements as $achiev)
+                            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
+                                <div class="single-blog h-calc wow fadeInUp" data-wow-delay="0.2s">
+                                    <div class="position-relative">
+                                        <a href="blog-details.html"> <img src="files/achievement/{{ $achiev->image }}"
+                                                class="img-fluid w-100" alt="img"> </a>
+                                    </div>
+                                    <div class="blog-info">
+                                        <div class="blog-info-title">
+                                            <h4 class="title text-capitalize"><a href="blog-details.html">
+                                                    {{ $achiev->name }} </a></h4>
+                                            <p class="subtitle">{{ $achiev->description }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    @endfor
+                        @endforeach
+                    @endif
                 </div>
             </div>
         </section>
@@ -294,14 +295,13 @@
                     <div class="col-xl-3 pt-10">
                         <div class="single-terms mb-30">
                             <h5 class="title font-600">Address</h5>
-                            <p class="pera">Jln. Balai Desa, Desa Manis Dusun IV, Kec. Pulau Rakyat, Kab. Asahan.
-                                Sumatera Utara, Indonesia, 21273</p>
+                            <p class="pera"> {{ $contact->address }} </p>
                         </div>
                         <div class="single-terms mb-30">
                             <h5 class="title font-600">Contact</h5>
-                            <p class="pera mb-10">Phone : 0882016162981 </p>
-                            <p class="pera mb-10">Email : renjanamengabdi.id@gmail.com </p>
-                            <p class="pera mb-10">Instagram : renjanamengabdi.id </p>
+                            <p class="pera mb-10">Phone : {{ $contact->phone_number }} </p>
+                            <p class="pera mb-10">Email : {{ $contact->email }} </p>
+                            <p class="pera mb-10">Instagram : {{ $contact->instagram }}</p>
                         </div>
                     </div>
                     <div class="col-xl-6">

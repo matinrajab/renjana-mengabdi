@@ -1,3 +1,7 @@
+@php
+    use App\Helpers\DateFormatter;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="lrt">
 
@@ -27,18 +31,18 @@
     <meta name="twitter:image" content="www.Charitfix.com">
     <meta name="twitter:card" content="summary">
     <title>Charitfix - Charity & Donation HTML Template</title>
-    <link rel="icon" type="image/x-icon" sizes="20x20" href="assets/images/icon/favicon.png">
+    <link rel="icon" type="image/x-icon" sizes="20x20" href="{{ asset('assets') }}/images/icon/favicon.png">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-5.3.0.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/bootstrap-5.3.0.min.css">
     <!-- fonts & icon -->
-    <link rel="stylesheet" type="text/css" href="assets/css/remixicon.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/remixicon.css">
     <!-- Plugin -->
-    <link rel="stylesheet" type="text/css" href="assets/css/plugin.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/plugin.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/main-style.css">
     <!-- RTL CSS::When Need RTL Uncomments File -->
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/rtl.css"> -->
 </head>
 
 <body>
@@ -52,12 +56,13 @@
                                 <div class="header-left d-flex align-items-center justify-content-between">
                                     <!-- Logo-->
                                     <div class="logo logo-large light-logo">
-                                        <a href="index.html"><img src="assets/images/logo/logo-renjana-mengabdi.png"
+                                        <a href="index.html"><img
+                                                src="{{ asset('assets') }}/images/logo/logo-renjana-mengabdi.png"
                                                 style="height:80px;" alt="logo"></a>
                                     </div>
                                     <!-- Logo Mobile-->
                                     <div class="logo logo-mobile light-logo">
-                                        <a href="index.html"><img src="assets/images/icon/favicon.png"
+                                        <a href="index.html"><img src="{{ asset('assets') }}/images/icon/favicon.png"
                                                 alt="img"></a>
                                     </div>
                                 </div>
@@ -168,8 +173,7 @@
                                     class="single">Event</a></li>
                         </ul>
                     </nav>
-                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s">Event Name Lorem ipsum dolor sit amet
-                        consectetur adipisicing elit.</h1>
+                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s"> event details </h1>
                 </div>
             </div>
         </section>
@@ -186,34 +190,7 @@
                                 <h2 class="title text-capitalize font-600 position-relative">Event Description</h2>
                             </div>
                             <div class="donate-content">
-                                <p class="pera">Description Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                    Hic placeat sed maxime reprehenderit temporibus ad sequi voluptas iusto explicabo
-                                    voluptates, minima, esse eos et! Asperiores aperiam quas deleniti, vero laboriosam
-                                    delectus minima hic perspiciatis error odio laborum impedit officia animi! Tempora
-                                    quos tempore suscipit illo magni, esse facere sunt soluta nulla labore eaque id
-                                    minima explicabo expedita maiores, quae odit. Mollitia laborum accusamus iusto nobis
-                                    dignissimos excepturi voluptates dolor porro, ea, dolores placeat architecto fugit
-                                    veritatis rem explicabo autem. Quod, molestias saepe modi asperiores cumque
-                                    dignissimos, laborum omnis similique tempore praesentium debitis consequatur dolorum
-                                    aperiam ad nisi. Ex blanditiis illo animi dolorem cumque sed facilis? Magnam porro
-                                    repellat soluta ut minima fugiat consequuntur architecto omnis quae dolorum, quod
-                                    tempore? Autem aspernatur eaque aperiam voluptatum aliquam amet, perspiciatis neque
-                                    architecto ratione. Deleniti molestias laboriosam nulla laudantium vitae laborum
-                                    excepturi fugit doloremque maiores modi esse ad cum possimus rem quaerat consectetur
-                                    iure numquam dolor voluptatibus ullam eligendi provident, inventore placeat
-                                    nesciunt? Optio ex, enim ducimus consequatur, explicabo aut perferendis possimus
-                                    impedit delectus ipsa, error qui? Qui hic vero vel error quae mollitia labore iure
-                                    molestiae. Quae possimus ratione nesciunt fugit in eius laborum obcaecati aliquid
-                                    corporis culpa consequatur quas quos corrupti laboriosam, repellat non nam hic
-                                    reprehenderit architecto inventore! Nulla voluptate architecto accusantium magni a
-                                    dolore vero aliquam aspernatur, velit odio eos possimus itaque autem magnam minima
-                                    minus repudiandae rem distinctio inventore eligendi? Quo atque dignissimos eveniet,
-                                    libero minus cupiditate, similique hic dolor officia, nesciunt commodi quia? Numquam
-                                    amet illo sed voluptas impedit accusantium explicabo a, magnam alias saepe aperiam
-                                    veritatis quas, excepturi repudiandae ad mollitia fuga! Nisi quisquam atque quia
-                                    praesentium, ipsa debitis vitae consequuntur iure saepe in repellat a eaque
-                                    molestiae quam autem officiis asperiores nobis. Voluptatem, corporis sed. Iure
-                                    commodi cupiditate accusantium ut ipsam officia facere, dolore quasi beatae.</p>
+                                <p class="pera">{!! nl2br($event->description) !!}</p>
                             </div>
                         </div>
                     </div>
@@ -221,7 +198,8 @@
                         <div class="blog-section-two">
                             <div class="single-blog h-calc">
                                 <div class="blog-img position-relative">
-                                    <a href="blog-details.html"> <img src="assets/images/gallery/gallery-2.png"
+                                    <a href="blog-details.html"> <img
+                                            src="{{ asset('files') }}/event/{{ $event->image }}"
                                             class="img-fluid w-100" alt="img"> </a>
                                     <div class="blog-img-overlay-text"></div>
                                 </div>
@@ -231,15 +209,16 @@
                                         <div class="d-flex justify-content-between align-items-center">
                                             <div class="blog-info-title">
                                                 <h4 class="title text-capitalize">Event :</h4>
-                                                <p class="subtitle">Event Name Lorem ipsum dolor sit amet consectetur
-                                                    adipisicing elit. </p>
+                                                <p class="subtitle">{{ $event->name }}</p>
                                                 <div class="priceListing">
                                                     <ul class="listing">
                                                         <li class="listItem">
                                                             <p class="leftCap font-600">Location & Date</p>
                                                         </li>
                                                         <li class="listItem">
-                                                            <p class="subtitle">Yogyakarta, 6-10 November 2023 </p>
+                                                            <p class="subtitle">{{ "$event->location, " }}
+                                                                {{ DateFormatter::startToEnd($event->start_date, $event->end_date) }}
+                                                            </p>
                                                         </li>
                                                     </ul>
                                                 </div>
@@ -255,38 +234,41 @@
         </div>
         <!--End-of Donation Payment -->
 
-        <!-- gallery Area S t a r t -->
-        <section class="urgent-area bottom-padding2">
+        <!-- Blog S t a r t -->
+        <section class="blog-section-three bottom-padding">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-50">
-                            <h2 class="title font-700">Gallery</h2>
+                            <span class="sub-tittle text-capitalize font-600">gallery</span>
+                            <h2 class="title font-700">The Best Moments</h2>
                         </div>
                     </div>
                 </div>
-                <div class="row justify-content-center">
-                    <div class="col-xxl-7 col-xl-8 col-lg-8 p-0 urgent-area-slide xs-p-12">
-                        @for ($i = 0; $i < 5; $i++)
-                            <!-- Single Slider-->
-                            <div class="image-container position-relative h-100">
-                                <img class="w-100 h-100" src="assets/images/gallery/urgent-1.png" alt="img">
-                                <div class="image-overlay-text">
-                                    <div class="overlay-title">
-                                        <h4 class="max-w-600" style="color: white">
-                                            Caption Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas,
-                                            dolore.
-                                        </h4>
+                <div class="row gy-24">
+                    @foreach ($event->galleries as $gallery)
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 view-wrapper">
+                            <div class="single-blog h-calc">
+                                <div class="blog-img">
+                                    <img src="{{ asset('files') }}/gallery/{{ $gallery->image }}"
+                                        class="img-fluid w-100" alt="img">
+                                </div>
+                                <div class="blog-info">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="blog-info-title">
+                                            <h4 class="title text-capitalize">{{ $gallery->title }}</h4>
+                                            <p class="subtitle">{{ $gallery->caption }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        @endfor
-                    </div>
+                        </div>
+                    @endforeach
                 </div>
             </div>
         </section>
-        <!-- End-of gallery area -->
+        <!-- End-of Blog -->
 
     </main>
     <!-- Footer S t a r t -->
@@ -299,7 +281,8 @@
                             <div class="header-left d-flex align-items-center justify-content-between">
                                 <!-- Logo-->
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/images/logo/logo-renjana-mengabdi.png"
+                                    <a href="index.html"><img
+                                            src="{{ asset('assets') }}/images/logo/logo-renjana-mengabdi.png"
                                             style="height:80px;" alt="logo"></a>
                                 </div>
                             </div>
@@ -410,7 +393,8 @@
                                     <div class="d-flex gap-20 mb-20 align-items-center">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-1.png" alt="image">
+                                                <img src="{{ asset('assets') }}/images/gallery/project-1.png"
+                                                    alt="image">
                                             </a>
                                         </div>
 
@@ -426,7 +410,8 @@
                                     <div class="d-flex gap-20">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-2.png" alt="image">
+                                                <img src="{{ asset('assets') }}/images/gallery/project-2.png"
+                                                    alt="image">
                                             </a>
                                         </div>
                                         <div class="project-info">
@@ -486,13 +471,13 @@
     <!-- Add an overlay element -->
     <div class="overlay"></div>
     <!-- jquery-->
-    <script src="assets/js/jquery-3.7.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap-5.3.0.min.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery-3.7.0.min.js"></script>
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap-5.3.0.min.js"></script>
     <!-- Plugin -->
-    <script src="assets/js/plugin.js"></script>
+    <script src="{{ asset('assets') }}/js/plugin.js"></script>
     <!-- Main js-->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets') }}/js/main.js"></script>
 </body>
 
 </html>

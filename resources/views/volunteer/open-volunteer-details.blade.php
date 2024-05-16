@@ -1,3 +1,7 @@
+@php
+    use App\Helpers\DateFormatter;
+@endphp
+
 <!DOCTYPE html>
 <html lang="en" dir="lrt">
 
@@ -27,18 +31,18 @@
     <meta name="twitter:image" content="www.Charitfix.com">
     <meta name="twitter:card" content="summary">
     <title>Charitfix - Charity & Donation HTML Template</title>
-    <link rel="icon" type="image/x-icon" sizes="20x20" href="assets/images/icon/favicon.png">
+    <link rel="icon" type="image/x-icon" sizes="20x20" href="{{ asset('assets') }}/images/icon/favicon.png">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-5.3.0.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/bootstrap-5.3.0.min.css">
     <!-- fonts & icon -->
-    <link rel="stylesheet" type="text/css" href="assets/css/remixicon.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/remixicon.css">
     <!-- Plugin -->
-    <link rel="stylesheet" type="text/css" href="assets/css/plugin.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/plugin.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/main-style.css">
     <!-- RTL CSS::When Need RTL Uncomments File -->
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('assets') }}/css/rtl.css"> -->
 </head>
 
 <body>
@@ -52,12 +56,13 @@
                                 <div class="header-left d-flex align-items-center justify-content-between">
                                     <!-- Logo-->
                                     <div class="logo logo-large light-logo">
-                                        <a href="index.html"><img src="assets/images/logo/logo-renjana-mengabdi.png"
+                                        <a href="index.html"><img
+                                                src="{{ asset('assets') }}/images/logo/logo-renjana-mengabdi.png"
                                                 style="height:80px;" alt="logo"></a>
                                     </div>
                                     <!-- Logo Mobile-->
                                     <div class="logo logo-mobile light-logo">
-                                        <a href="index.html"><img src="assets/images/icon/favicon.png"
+                                        <a href="index.html"><img src="{{ asset('assets') }}/images/icon/favicon.png"
                                                 alt="img"></a>
                                     </div>
                                 </div>
@@ -181,29 +186,21 @@
                 <div class="row gy-24">
                     <div class="col-xl-4 col-md-5 col-lg-5">
                         <div class="volunteer-img">
-                            <img src="assets/images/gallery/volunteer-1.png" alt="image">
+                            <img src="{{ asset('files') }}/volunteer/{{ $openVolunteer->image }}" alt="image">
                         </div>
                     </div>
                     <div class="col-xl-8 col-md-7 col-lg-7">
                         <div class="volunteer-info-card">
                             <div class="volunteer-info">
                                 <div class="naming-section">
-                                    <h3 class="title">Name Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                        Tenetur, consequuntur.</h3>
-                                    <span class="subtitle mr-20">Category : Type </span>
+                                    <h3 class="title"> {{ $openVolunteer->program_name }} </h3>
+                                    <span class="subtitle mr-20">Category : {{ $openVolunteer->volunteerType->name }}
+                                    </span>
                                 </div>
                             </div>
                             <div class="divider"></div>
                             <h4 class="title">Description</h4>
-                            <p class="pera">Description Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                                Commodi suscipit odio cumque officia sunt quos sint eaque, ab recusandae repudiandae ex,
-                                quia non explicabo architecto sequi? Non eum, architecto nulla hic ipsam iusto
-                                blanditiis earum magnam nam dolor voluptatum nihil fugit officia animi. Doloremque,
-                                dolores natus tempore iure vero provident laborum voluptate odit quos aliquid, molestiae
-                                quis quia. Officia hic expedita porro, corporis error pariatur, quo placeat, nostrum
-                                quod iure consectetur sit sed animi aut soluta odit fugiat corrupti itaque reiciendis?
-                                Esse, minus repellat consequuntur, minima, sit exercitationem eius sapiente voluptas
-                                obcaecati possimus voluptatibus. Eos culpa consequatur omnis perspiciatis doloremque!
+                            <p class="pera">{!! nl2br($openVolunteer->description) !!}
                             </p>
                             <h4 class="title">Location & Date</h4>
                             <div class="contact-list">
@@ -211,13 +208,15 @@
                                     <div class="single-icon">
                                         <i class="ri-map-pin-line"></i>
                                     </div>
-                                    <p class="title">Bali</p>
+                                    <p class="title">{{ $openVolunteer->location }}</p>
                                 </div>
                                 <div class="contact-icon-list">
                                     <div class="single-icon">
                                         <i class="ri-calendar-check-line"></i>
                                     </div>
-                                    <p class="title">11 - 12 Oktober 2002</p>
+                                    <p class="title">
+                                        {{ DateFormatter::startToEnd($openVolunteer->start_date, $openVolunteer->end_date) }}
+                                    </p>
                                 </div>
                             </div>
                             <br>
@@ -227,7 +226,8 @@
                                     <div class="single-icon">
                                         <i class="ri-calendar-check-line"></i>
                                     </div>
-                                    <p class="title">12 Oktober 2001</p>
+                                    <p class="title"> {{ DateFormatter::date($openVolunteer->application_deadline) }}
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -235,10 +235,9 @@
                             <h4 class="title">Requirements</h4>
                             <div class="education-box">
                                 <ul class="key-points">
-                                    @for ($i = 0; $i < 5; $i++)
-                                        <li class="point">Requirement Lorem, ipsum dolor sit amet consectetur
-                                            adipisicing elit. Ab, adipisci!</li>
-                                    @endfor
+                                    @foreach ($openVolunteer->volunteerRequirements as $req)
+                                        <li class="point"> {{ $req->content }} </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -246,10 +245,9 @@
                             <h4 class="title">Application Process</h4>
                             <div class="education-box">
                                 <ul class="key-points">
-                                    @for ($i = 0; $i < 5; $i++)
-                                        <li class="point">Application Process, ipsum dolor sit amet consectetur
-                                            adipisicing elit. Ab, adipisci!</li>
-                                    @endfor
+                                    @foreach ($openVolunteer->applicationProcesses as $process)
+                                        <li class="point"> {{ $process->content }} </li>
+                                    @endforeach
                                 </ul>
                             </div>
                         </div>
@@ -263,25 +261,25 @@
         <div class="gallery-area">
             <div class="gallery-slider d-flex">
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-1.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-1.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-2.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-2.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-3.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-3.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-4.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-4.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-2.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-2.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-3.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-3.png" alt="img">
                 </div>
                 <div class="gallery-img">
-                    <img src="assets/images/gallery/gallery-1.png" alt="img">
+                    <img src="{{ asset('assets') }}/images/gallery/gallery-1.png" alt="img">
                 </div>
             </div>
         </div>
@@ -297,7 +295,8 @@
                             <div class="header-left d-flex align-items-center justify-content-between">
                                 <!-- Logo-->
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/images/logo/logo-renjana-mengabdi.png"
+                                    <a href="index.html"><img
+                                            src="{{ asset('assets') }}/images/logo/logo-renjana-mengabdi.png"
                                             style="height:80px;" alt="logo"></a>
                                 </div>
                             </div>
@@ -408,7 +407,8 @@
                                     <div class="d-flex gap-20 mb-20 align-items-center">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-1.png" alt="image">
+                                                <img src="{{ asset('assets') }}/images/gallery/project-1.png"
+                                                    alt="image">
                                             </a>
                                         </div>
 
@@ -424,7 +424,8 @@
                                     <div class="d-flex gap-20">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-2.png" alt="image">
+                                                <img src="{{ asset('assets') }}/images/gallery/project-2.png"
+                                                    alt="image">
                                             </a>
                                         </div>
                                         <div class="project-info">
@@ -484,13 +485,13 @@
     <!-- Add an overlay element -->
     <div class="overlay"></div>
     <!-- jquery-->
-    <script src="assets/js/jquery-3.7.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap-5.3.0.min.js"></script>
+    <script src="{{ asset('assets') }}/js/jquery-3.7.0.min.js"></script>
+    <script src="{{ asset('assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('assets') }}/js/bootstrap-5.3.0.min.js"></script>
     <!-- Plugin -->
-    <script src="assets/js/plugin.js"></script>
+    <script src="{{ asset('assets') }}/js/plugin.js"></script>
     <!-- Main js-->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('assets') }}/js/main.js"></script>
 </body>
 
 </html>
