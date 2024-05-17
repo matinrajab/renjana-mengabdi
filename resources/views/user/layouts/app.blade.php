@@ -26,19 +26,19 @@
         content="These template is suitable for charity , NGO ,donate,fundraiser, non-profit organization">
     <meta name="twitter:image" content="www.Charitfix.com">
     <meta name="twitter:card" content="summary">
-    <title>Charitfix - Charity & Donation HTML Template</title>
-    <link rel="icon" type="image/x-icon" sizes="20x20" href="assets/images/icon/favicon.png">
+    <title>@yield('title', 'Renjana Mengabdi')</title>
+    <link rel="icon" type="image/x-icon" sizes="20x20" href="{{ asset('user/assets') }}/images/icon/favicon.png">
 
     <!-- Bootstrap -->
-    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap-5.3.0.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user/assets') }}/css/bootstrap-5.3.0.min.css">
     <!-- fonts & icon -->
-    <link rel="stylesheet" type="text/css" href="assets/css/remixicon.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user/assets') }}/css/remixicon.css">
     <!-- Plugin -->
-    <link rel="stylesheet" type="text/css" href="assets/css/plugin.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user/assets') }}/css/plugin.css">
     <!-- Main CSS -->
-    <link rel="stylesheet" type="text/css" href="assets/css/main-style.css">
+    <link rel="stylesheet" type="text/css" href="{{ asset('user/assets') }}/css/main-style.css">
     <!-- RTL CSS::When Need RTL Uncomments File -->
-    <!-- <link rel="stylesheet" type="text/css" href="assets/css/rtl.css"> -->
+    <!-- <link rel="stylesheet" type="text/css" href="{{ asset('user/assets') }}/css/rtl.css"> -->
 </head>
 
 <body>
@@ -52,12 +52,14 @@
                                 <div class="header-left d-flex align-items-center justify-content-between">
                                     <!-- Logo-->
                                     <div class="logo logo-large light-logo">
-                                        <a href="index.html"><img src="assets/images/logo/Logo-charitfix.png"
-                                                alt="logo"></a>
+                                        <a href="index.html"><img
+                                                src="{{ asset('user/assets') }}/images/logo/logo-renjana-mengabdi.png"
+                                                style="height:80px;" alt="logo"></a>
                                     </div>
                                     <!-- Logo Mobile-->
                                     <div class="logo logo-mobile light-logo">
-                                        <a href="index.html"><img src="assets/images/icon/favicon.png"
+                                        <a href="index.html"><img
+                                                src="{{ asset('user/assets') }}/images/icon/favicon.png"
                                                 alt="img"></a>
                                     </div>
                                 </div>
@@ -72,34 +74,32 @@
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul class="listing" id="navigation">
-                                            <li class="single-list">
-                                                <a href="javascript:void(0)" class="single">Home <i
-                                                        class="ri-arrow-down-s-line"></i></a>
-                                                <ul class="submenu">
-                                                    <li class="single-list"><a href="index.html" class="single">Home
-                                                            01</a></li>
-                                                    <li class="single-list"><a href="index-two.html" class="single">Home
-                                                            02</a></li>
-                                                    <li class="single-list"><a href="index-three.html"
-                                                            class="single">Home 03</a></li>
-                                                </ul>
+                                            <li class="single-list"><a href="/"
+                                                    class="single {{ isset($home_page) ? 'active' : '' }}">Home</a>
                                             </li>
-                                            <li class="single-list"><a href="about.html" class="single">About</a></li>
-                                            <li class="single-list"><a href="donation.html"
-                                                    class="single">Donation</a></li>
-                                            <li class="single-list"><a href="blog.html" class="single">Blog</a></li>
+                                            <li class="single-list"><a href="/open-volunteers"
+                                                    class="single {{ isset($volunteer_page) ? 'active' : '' }}">Open
+                                                    Volunteer</a></li>
+                                            <li class="single-list"><a href="/events"
+                                                    class="single {{ isset($event_page) ? 'active' : '' }}">Event</a>
+                                            </li>
+                                            <li class="single-list"><a href="/blogs"
+                                                    class="single {{ isset($blog_page) ? 'active' : '' }}">Blog</a>
+                                            </li>
                                             <li class="single-list">
-                                                <a href="javascript:void(0)" class="single active">Collaboration<i
+                                                <a href="javascript:void(0)"
+                                                    class="single {{ isset($collaboration_page) ? 'active' : '' }}">Collaboration<i
                                                         class="ri-arrow-down-s-line"></i></a>
                                                 <ul class="submenu">
-                                                    <li class="single-list"><a href="volunteer.html"
+                                                    <li class="single-list"><a href="/partnership"
                                                             class="single">Partnership</a></li>
-                                                    <li class="single-list"><a href="donate-payment.html"
+                                                    <li class="single-list"><a href="/sponsorship"
                                                             class="single">Sponsorship</a></li>
                                                 </ul>
                                             </li>
-                                            <li class="single-list"><a href="contact-us.html"
-                                                    class="single">Contact</a></li>
+                                            <li class="single-list"><a href="/company"
+                                                    class="single {{ isset($company_page) ? 'active' : '' }}">Company</a>
+                                            </li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -123,55 +123,11 @@
             </div>
         </div>
     </header>
-    <main>
-        <!-- Breadcrumb Area S t a r t -->
-        <section class="breadcrumb-section breadcrumb-bg">
-            <div class="container">
-                <div class="breadcrumb-text">
-                    <nav aria-label="breadcrumb" class="breadcrumb-nav wow fadeInUp" data-wow-delay="0.0s">
-                        <ul class="breadcrumb listing">
-                            <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
-                            <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
-                                    class="single">sponsorship</a></li>
-                        </ul>
-                    </nav>
-                    <h1 class="title wow fadeInUp" data-wow-delay="0.1s"> {{ $sponsorship->type }} </h1>
-                </div>
-            </div>
-        </section>
-        <!-- End-of Breadcrumb Area -->
-        <!-- Privacy policy S t r t -->
-        <div class="privacy-policy-area section-padding2">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <!-- Single -->
-                        <div class="single-terms mb-30">
-                            <h5 class="title font-600">Description</h5>
-                            <p class="pera mb-20">{!! nl2br($sponsorship->description) !!}</p>
-                        </div>
-                        <div class="single-terms mb-30">
-                            <h5 class="title font-600">Benefits</h5>
-                            <p class="pera mb-20">{!! nl2br($sponsorship->benefits) !!}</p>
-                        </div>
-                        <!-- Single -->
-                        <div class="single-terms mb-0">
-                            <h5 class="title font-600">Contact Us</h5>
-                            <p class="pera mb-20 text-normal">{{ "Phone: $sponsorship->contact_person" }}</p>
-                            <p class="pera mb-20 text-normal">{{ "Email: $sponsorship->contact_email" }}</p>
-                        </div>
-                        <div class="col-lg-10 mt-10">
-                            <a href="https://wa.me/{{ $sponsorship->contact_person }}?text=Halo%20saya%20tertarik%20untuk%20join%20{{ $sponsorship->type }}"
-                                class="btn btn-primary-fill">Join Our {{ $sponsorship->type }}</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- End-of Privacy policy-->
 
+    <main>
+        @yield('content')
     </main>
-    <!-- Footer S t a r t -->
+
     <footer>
         <div class="footer-wrapper footer-bg-one">
             <div class="container">
@@ -181,7 +137,9 @@
                             <div class="header-left d-flex align-items-center justify-content-between">
                                 <!-- Logo-->
                                 <div class="logo">
-                                    <a href="index.html"><img src="assets/images/logo/dark.png" alt="logo"></a>
+                                    <a href="index.html"><img
+                                            src="{{ asset('user/assets') }}/images/logo/logo-renjana-mengabdi.png"
+                                            style="height:80px;" alt="logo"></a>
                                 </div>
                             </div>
                             <!-- Footer-menu -->
@@ -291,7 +249,8 @@
                                     <div class="d-flex gap-20 mb-20 align-items-center">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-1.png" alt="image">
+                                                <img src="{{ asset('user/assets') }}/images/gallery/project-1.png"
+                                                    alt="image">
                                             </a>
                                         </div>
 
@@ -307,7 +266,8 @@
                                     <div class="d-flex gap-20">
                                         <div class="project-img">
                                             <a href="donation-details.html">
-                                                <img src="assets/images/gallery/project-2.png" alt="image">
+                                                <img src="{{ asset('user/assets') }}/images/gallery/project-2.png"
+                                                    alt="image">
                                             </a>
                                         </div>
                                         <div class="project-info">
@@ -357,7 +317,7 @@
             </div>
         </div>
     </footer>
-    <!-- End-of Footer -->
+
     <!-- Scroll Up  -->
     <div class="progressParent" id="back-top">
         <svg class="backCircle svg-inner" width="100%" height="100%" viewBox="-1 -1 102 102">
@@ -367,13 +327,13 @@
     <!-- Add an overlay element -->
     <div class="overlay"></div>
     <!-- jquery-->
-    <script src="assets/js/jquery-3.7.0.min.js"></script>
-    <script src="assets/js/popper.min.js"></script>
-    <script src="assets/js/bootstrap-5.3.0.min.js"></script>
+    <script src="{{ asset('user/assets') }}/js/jquery-3.7.0.min.js"></script>
+    <script src="{{ asset('user/assets') }}/js/popper.min.js"></script>
+    <script src="{{ asset('user/assets') }}/js/bootstrap-5.3.0.min.js"></script>
     <!-- Plugin -->
-    <script src="assets/js/plugin.js"></script>
+    <script src="{{ asset('user/assets') }}/js/plugin.js"></script>
     <!-- Main js-->
-    <script src="assets/js/main.js"></script>
+    <script src="{{ asset('user/assets') }}/js/main.js"></script>
 </body>
 
 </html>

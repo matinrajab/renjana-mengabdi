@@ -23,7 +23,7 @@ class HomepageController extends Controller
         $events = Event::orderByDesc('id')->limit(3)->get();
         $blogs = Blog::orderByDesc('id')->limit(3)->get();
         $banners = SlideBanner::all();
-        return view('home.home', ['home' => $home, 'missions' => $missions, 'values' => $values, 'events' => $events, 'blogs' => $blogs, 'banners' => $banners]);
+        return view('user.home.home', ['home' => $home, 'missions' => $missions, 'values' => $values, 'events' => $events, 'blogs' => $blogs, 'banners' => $banners]);
     }
 
     /**

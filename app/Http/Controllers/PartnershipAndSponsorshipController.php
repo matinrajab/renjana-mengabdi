@@ -10,13 +10,13 @@ class PartnershipAndSponsorshipController extends Controller
     public function showPartnership()
     {
         $partnership = PartnershipAndSponsorship::find(1);
-        return view('partnership.partnership', ['partnership' => $partnership]);
+        return view('user.partnership.partnership', ['partnership' => $partnership]);
     }
 
     public function showSponsorship()
     {
         $sponsorship = PartnershipAndSponsorship::find(2);
-        return view('partnership.sponsorship', ['sponsorship' => $sponsorship]);
+        return view('user.partnership.sponsorship', ['sponsorship' => $sponsorship]);
     }
 
     /**

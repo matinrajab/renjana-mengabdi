@@ -13,7 +13,7 @@ class BlogController extends Controller
     public function index()
     {
         $blogs = Blog::orderByDesc('id')->get();
-        return view('blog.blogs', ['blogs' => $blogs]);
+        return view('user.blog.blogs', ['blogs' => $blogs]);
     }
 
     /**
@@ -38,7 +38,7 @@ class BlogController extends Controller
     public function show($id)
     {
         $blog = Blog::findOrFail($id);
-        return view('blog.blog-details', ['blog' => $blog]);
+        return view('user.blog.blog-details', ['blog' => $blog]);
     }
 
     /**

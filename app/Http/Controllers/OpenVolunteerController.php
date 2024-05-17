@@ -13,7 +13,7 @@ class OpenVolunteerController extends Controller
     public function index()
     {
         $openVolunteers = OpenVolunteer::orderByDesc('id')->get();
-        return view('volunteer.open-volunteers', ['openVolunteers' => $openVolunteers]);
+        return view('user.volunteer.open-volunteers', ['openVolunteers' => $openVolunteers]);
     }
 
     /**
@@ -38,7 +38,7 @@ class OpenVolunteerController extends Controller
     public function show($id)
     {
         $openVolunteer = OpenVolunteer::findOrFail($id);
-        return view('volunteer.open-volunteer-details', ['openVolunteer' => $openVolunteer]);
+        return view('user.volunteer.open-volunteer-details', ['openVolunteer' => $openVolunteer]);
     }
 
     /**

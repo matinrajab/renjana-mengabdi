@@ -15,7 +15,7 @@ class CompanyController extends Controller
     {
         $contact = ContactUs::find(1);
         $company = CompanyProfile::find(1);
-        return view('company.company', ['contact' => $contact, 'company' => $company]);
+        return view('user.company.company', ['contact' => $contact, 'company' => $company]);
     }
 
     /**

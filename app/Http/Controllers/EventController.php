@@ -13,7 +13,7 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::orderByDesc('id')->get();
-        return view('event.events', ['events' => $events]);
+        return view('user.event.events', ['events' => $events]);
     }
 
     /**
@@ -38,7 +38,7 @@ class EventController extends Controller
     public function show($id)
     {
         $event = Event::findOrFail($id);
-        return view('event.event-details', ['event' => $event]);
+        return view('user.event.event-details', ['event' => $event]);
     }
 
     /**
