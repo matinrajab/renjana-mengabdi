@@ -13,8 +13,8 @@ class CompanyController extends Controller
      */
     public function index()
     {
-        $contact = ContactUs::find(1);
-        $company = CompanyProfile::find(1);
+        $contact = ContactUs::first();
+        $company = CompanyProfile::first();
         return view('user.company.company', ['contact' => $contact, 'company' => $company]);
     }
 
