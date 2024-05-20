@@ -278,8 +278,11 @@
             </ul>
         </div>
         <div class="sidenav-footer mx-3 ">
-            <a class="btn bg-gradient-primary mt-3 w-100"
-                href="https://www.creative-tim.com/product/soft-ui-dashboard-pro?ref=sidebarfree">Log Out</a>
+
+            <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <button type="submit" class="btn bg-gradient-primary mt-3 w-100">Log Out</button>
+            </form>
         </div>
     </aside>
 
