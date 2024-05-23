@@ -57,7 +57,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="button-section"><a href="blogs/{{ $blog->id }}" class="read-btn">Read
+                            <div class="button-section"><a href="{{ route('blogs.show', $blog) }}" class="read-btn">Read
                                     More</a>
                             </div>
                         </div>

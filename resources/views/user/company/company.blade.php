@@ -34,15 +34,7 @@
                 </div>
                 <div class="col-xl-5 col-lg-6">
                     <div class="position-relative">
-                        <div class="play-button">
-                            <a id="play-video" class="video-play-button" href="javascript:void(0)">
-                                <span></span>
-                            </a>
-                            <div id="video-overlay" class="video-overlay">
-                                <a class="video-overlay-close">&times;</a>
-                            </div>
-                        </div>
-                        <img class="w-100 " src="user/assets/images/gallery/about-cover-2.png" alt="image">
+                        <img class="w-100 " src="{{ asset('files') }}/company/{{ $company->image }}" alt="image">
                     </div>
                 </div>
             </div>
@@ -63,7 +55,7 @@
             </div>
             <div class="row gy-24">
                 @if ($company)
-                    @foreach ($company->teams as $team)
+                    @foreach ($teams as $team)
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 view-wrapper">
                             <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.0s">
                                 <div class="event-img position-relative">
@@ -104,7 +96,7 @@
             </div>
             <div class="row gy-24">
                 @if ($company)
-                    @foreach ($company->achievements as $achiev)
+                    @foreach ($achievements as $achiev)
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 view-wrapper">
                             <div class="single-blog h-calc wow fadeInUp" data-wow-delay="0.2s">
                                 <div class="position-relative">
@@ -154,7 +146,7 @@
                 <div class="col-xl-6">
                     <div class="send-box">
                         <iframe class="map-frame"
-                            src="https://www.google.com/maps/embed/v1/place?q=Jl.+Balai+Desa,+Ledong+Tim.,+Kec.+Aek+Ledong,+Kabupaten+Asahan,+Sumatera+Utara,+Indonesia&amp;key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
+                            src="https://www.google.com/maps/embed/v1/place?q={{ $contact->address }}&amp;key=AIzaSyBFw0Qbyq9zTFTd-tUY6dZWTgaQzuU17R8"
                             width="600" height="450" style="border: 15px" allowfullscreen="" loading="lazy"
                             referrerpolicy="no-referrer-when-downgrade"></iframe>
                     </div>

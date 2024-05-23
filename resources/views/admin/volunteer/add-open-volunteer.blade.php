@@ -12,7 +12,7 @@
                     <h6>Add Open Volunteer</h6>
                 </div>
                 <div class="card-body pt-4 p-3">
-                    <form action="/user-profile" method="POST" role="form text-left">
+                    <form action="/user-profile" method="POST" enctype="multipart/form-data">
                         <div class="col-md-7">
                             <div class="form-group">
                                 <label for="program_name" class="form-control-label">Program Name</label>

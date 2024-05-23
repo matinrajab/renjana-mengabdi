@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ValueRequest;
+use App\Models\Value;
 use Illuminate\Http\Request;
 
 class AdminValueController extends Controller
@@ -20,15 +22,17 @@ class AdminValueController extends Controller
      */
     public function create()
     {
-        return view('admin.home.add_value');
+        return view('admin.home.add-value');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(ValueRequest $request)
     {
-        //
+        Value::create($request->all());
+
+        return redirect('/admin/homepage/edit');
     }
 
     /**
@@ -44,15 +48,20 @@ class AdminValueController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.home.edit_value');
+        $value = Value::findOrFail($id);
+
+        return view('admin.home.edit-value', ['value' => $value]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(ValueRequest $request, string $id)
     {
-        //
+        $value = Value::findOrFail($id);
+        $value->update($request->all());
+
+        return redirect('/admin/homepage/edit');
     }
 
     /**
@@ -60,6 +69,9 @@ class AdminValueController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $value = Value::findOrFail($id);
+        $value->delete();
+
+        return redirect()->back();
     }
 }

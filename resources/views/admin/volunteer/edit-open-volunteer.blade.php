@@ -12,7 +12,7 @@
                     <h6>Edit Open Volunteer</h6>
                 </div>
                 <div class="card-body pt-4 p-3">
-                    <form action="/user-profile" method="POST" role="form text-left">
+                    <form action="/user-profile" method="POST" enctype="multipart/form-data">
                         <div class="col-md-7">
                             <div class="form-group">
                                 <label for="program_name" class="form-control-label">Program Name</label>
@@ -130,7 +130,7 @@
                                     name="application_deadline">
                             </div>
                         </div>
-                        <div class="">
+                        <div>
                             <div class="form-group">
                                 <label for="image" class="form-control-label">Image</label>
                                 <div class="col-md-6 d-block shadow-xl border-radius-xl mb-4">

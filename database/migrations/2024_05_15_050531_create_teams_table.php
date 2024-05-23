@@ -13,7 +13,6 @@ return new class extends Migration
     {
         Schema::create('teams', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('company_profile_id')->constrained();
             $table->string('name');
             $table->string('position');
             $table->string('image');

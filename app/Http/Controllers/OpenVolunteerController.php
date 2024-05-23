@@ -35,10 +35,9 @@ class OpenVolunteerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show(OpenVolunteer $openVolunteer)
     {
-        $openVolunteer = OpenVolunteer::findOrFail($id);
-        return view('user.volunteer.open-volunteer-details', ['openVolunteer' => $openVolunteer]);
+        return view('user.volunteer.open-volunteer-details', compact('openVolunteer'));
     }
 
     /**

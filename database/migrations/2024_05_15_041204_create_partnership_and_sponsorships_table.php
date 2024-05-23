@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('partnership_and_sponsorships', function (Blueprint $table) {
             $table->id();
-            $table->enum('type', ['partnership', 'sponsorship']);
+            $table->enum('type', ['Partnership', 'Sponsorship']);
             $table->text('description');
             $table->text('benefits');
             $table->string('contact_person');

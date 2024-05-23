@@ -74,16 +74,16 @@
                                 <div class="main-menu d-none d-lg-block">
                                     <nav>
                                         <ul class="listing" id="navigation">
-                                            <li class="single-list"><a href="/"
+                                            <li class="single-list"><a href="{{ route('homepage.index') }}"
                                                     class="single {{ isset($home_page) ? 'active' : '' }}">Home</a>
                                             </li>
-                                            <li class="single-list"><a href="/open-volunteers"
+                                            <li class="single-list"><a href="{{ route('open-volunteers.index') }}"
                                                     class="single {{ isset($volunteer_page) ? 'active' : '' }}">Open
                                                     Volunteer</a></li>
-                                            <li class="single-list"><a href="/events"
+                                            <li class="single-list"><a href="{{ route('events.index') }}"
                                                     class="single {{ isset($event_page) ? 'active' : '' }}">Event</a>
                                             </li>
-                                            <li class="single-list"><a href="/blogs"
+                                            <li class="single-list"><a href="{{ route('blogs.index') }}"
                                                     class="single {{ isset($blog_page) ? 'active' : '' }}">Blog</a>
                                             </li>
                                             <li class="single-list">

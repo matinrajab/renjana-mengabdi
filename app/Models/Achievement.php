@@ -15,9 +15,4 @@ class Achievement extends Model
         'created_at',
         'updated_at',
     ];
-
-    public function companyProfile(): BelongsTo
-    {
-        return $this->belongsTo(CompanyProfile::class);
-    }
 }

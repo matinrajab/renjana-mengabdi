@@ -59,7 +59,7 @@
                                         <p class="subtitle">
                                             {{ substr($item->description, 0, 100) }}...
                                         </p>
-                                        <a href="open-volunteers/{{ $item->id }}" class="imp-link">
+                                        <a href="{{ route('open-volunteers.show', $item) }}" class="imp-link">
                                             More Details <i class="ri-arrow-right-line"></i>
                                         </a>
                                     </div>

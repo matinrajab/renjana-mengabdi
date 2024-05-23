@@ -15,6 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('volunteer_type_id')->constrained();
             $table->string('program_name');
+            $table->string('slug')->unique();
             $table->string('location');
             $table->date('start_date');
             $table->date('end_date');

@@ -122,8 +122,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ isset($admin_event_page) ? 'active' : '' }}"
-                        href="../pages/virtual-reality.html">
+                    <a class="nav-link {{ isset($admin_event_page) ? 'active' : '' }}" href="/admin/events">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 42 42" version="1.1"
@@ -153,7 +152,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ isset($admin_blog_page) ? 'active' : '' }}" href="../pages/rtl.html">
+                    <a class="nav-link {{ isset($admin_blog_page) ? 'active' : '' }}" href="/admin/blogs">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 40 40" version="1.1"
@@ -184,7 +183,7 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link {{ isset($admin_partnership_page) ? 'active' : '' }}"
-                        href="../pages/profile.html">
+                        href="/admin/partnership">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 46 42" version="1.1"
@@ -214,8 +213,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ isset($admin_company_page) ? 'active' : '' }}"
-                        href="../pages/sign-in.html">
+                    <a class="nav-link {{ isset($admin_company_page) ? 'active' : '' }}" href="/admin/company">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="12px" viewBox="0 0 40 44" version="1.1"
@@ -242,8 +240,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link {{ isset($admin_contact_page) ? 'active' : '' }}"
-                        href="../pages/sign-up.html">
+                    <a class="nav-link {{ isset($admin_contact_page) ? 'active' : '' }}" href="/admin/contact">
                         <div
                             class="icon icon-shape icon-sm shadow border-radius-md bg-white text-center me-2 d-flex align-items-center justify-content-center">
                             <svg width="12px" height="20px" viewBox="0 0 40 40" version="1.1"
@@ -572,6 +569,9 @@
     <script async defer src="https://buttons.github.io/buttons.js"></script>
     <!-- Control Center for Soft Dashboard: parallax effects, scripts for the example pages etc -->
     <script src="{{ asset('admin/assets') }}/js/soft-ui-dashboard.min.js?v=1.0.7"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
+    @stack('scriptjs')
 </body>
 
 </html>

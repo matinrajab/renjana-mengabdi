@@ -25,9 +25,16 @@ class HomepageRequest extends FormRequest
             'title' => ['required', 'string', 'max:255'],
             'subtitle' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
+            'about_us' => ['required', 'string'],
             'vision' => ['required', 'string'],
             'cta_label' => ['required', 'string', 'max:255'],
             'cta_url' => ['required', 'string', 'max:255'],
+            'years_count' => ['required', 'integer'],
+            'volunteers_count' => ['required', 'integer'],
+            'registrants_count' => ['required', 'integer'],
+            'destinations_count' => ['required', 'integer'],
+            'image_1' => ['file', 'mimes:png,jpg,jpeg'],
+            'image_2' => ['file', 'mimes:png,jpg,jpeg'],
         ];
     }
 }

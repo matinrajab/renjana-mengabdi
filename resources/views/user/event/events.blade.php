@@ -53,7 +53,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <a href="events/{{ $event->id }}" class="btn donate-btn w-100">More
+                                        <a href="{{ route('events.show', $event) }}" class="btn donate-btn w-100">More
                                             Details</a>
                                     </div>
                                 </div>

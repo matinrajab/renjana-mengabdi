@@ -16,9 +16,16 @@ return new class extends Migration
             $table->string('title');
             $table->string('subtitle');
             $table->text('description');
+            $table->text('about_us');
             $table->text('vision');
             $table->string('cta_label');
             $table->string('cta_url');
+            $table->integer('years_count');
+            $table->integer('volunteers_count');
+            $table->integer('registrants_count');
+            $table->integer('destinations_count');
+            $table->string('image_1');
+            $table->string('image_2');
             $table->timestamps();
         });
     }

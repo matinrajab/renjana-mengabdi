@@ -15,14 +15,4 @@ class CompanyProfile extends Model
         'created_at',
         'updated_at',
     ];
-
-    public function teams(): HasMany
-    {
-        return $this->hasMany(Team::class);
-    }
-
-    public function achievements(): HasMany
-    {
-        return $this->hasMany(Achievement::class);
-    }
 }

@@ -14,11 +14,15 @@ return new class extends Migration
         Schema::create('events', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('slug')->unique();
             $table->date('start_date');
             $table->date('end_date');
             $table->string('location');
             $table->text('description');
             $table->string('image');
+            $table->string('guide_book_link');
+            $table->string('fully_special_funded_link');
+            $table->string('self_funded_link');
             $table->timestamps();
         });
     }

@@ -42,8 +42,8 @@
                     <div class="blog-section-two">
                         <div class="single-blog h-calc">
                             <div class="blog-img position-relative">
-                                <a href="blog-details.html"> <img src="{{ asset('files') }}/event/{{ $event->image }}"
-                                        class="img-fluid w-100" alt="img"> </a>
+                                <img src="{{ asset('files') }}/event/{{ $event->image }}" class="img-fluid w-100"
+                                    alt="img">
                                 <div class="blog-img-overlay-text"></div>
                             </div>
                             <!-- Payment Details -->
@@ -65,6 +65,13 @@
                                                     </li>
                                                 </ul>
                                             </div>
+                                            <a href="{{ $event->guide_book_link }}" class="btn donate-btn w-100 mt-10">Guide
+                                                Book</a>
+                                            <a href="{{ $event->fully_special_funded_link }}"
+                                                class="btn donate-btn w-100 mt-10">Fully & Special Funded</a>
+                                            <a href="{{ $event->self_funded_link }}" class="btn donate-btn w-100 mt-10">Self
+                                                Funded
+                                                Registration</a>
                                         </div>
                                     </div>
                                 </div>
