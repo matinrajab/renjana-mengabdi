@@ -89,7 +89,10 @@ Route::middleware([
             Route::get('/', [AdminOpenVolunteerController::class, 'index']);
             Route::get('add', [AdminOpenVolunteerController::class, 'create']);
             Route::get('{id}', [AdminOpenVolunteerController::class, 'show']);
+            Route::post('store', [AdminOpenVolunteerController::class, 'store']);
             Route::get('edit/{id}', [AdminOpenVolunteerController::class, 'edit']);
+            Route::put('update/{id}', [AdminOpenVolunteerController::class, 'update']);
+            Route::get('delete/{id}', [AdminOpenVolunteerController::class, 'destroy']);
         });
 
         Route::prefix('events')->group(function () {
@@ -125,8 +128,6 @@ Route::middleware([
             Route::put('update/{id}', [AdminBlogController::class, 'update']);
             Route::get('delete/{id}', [AdminBlogController::class, 'destroy']);
         });
-
-
 
         Route::prefix('partnership')->group(function () {
             Route::get('/', [AdminPartnershipAndSponsorshipController::class, 'index']);

@@ -20,6 +20,8 @@ return new class extends Migration
             $table->date('start_date');
             $table->date('end_date');
             $table->text('description');
+            $table->text('requirements');
+            $table->text('application_process');
             $table->date('application_deadline');
             $table->string('image');
             $table->timestamps();

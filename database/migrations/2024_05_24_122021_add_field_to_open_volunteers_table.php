@@ -11,11 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('application_processes', function (Blueprint $table) {
-            $table->id();
-            $table->foreignId('open_volunteer_id')->constrained();
-            $table->text('content');
-            $table->timestamps();
+        Schema::table('open_volunteers', function (Blueprint $table) {
+            $table->text('application_process')->after('description');
+            $table->text('requirements')->after('description');
         });
     }
 
@@ -24,6 +22,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('application_processes');
+        Schema::table('open_volunteers', function (Blueprint $table) {
+            //
+        });
     }
 };

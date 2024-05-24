@@ -65,3 +65,13 @@
         </div>
     </div>
 @endsection
+
+@push('scriptjs')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#conten'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

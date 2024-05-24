@@ -26,14 +26,4 @@ class OpenVolunteer extends Model
     {
         return $this->belongsTo(VolunteerType::class);
     }
-
-    public function volunteerRequirements(): HasMany
-    {
-        return $this->hasMany(VolunteerRequirement::class);
-    }
-
-    public function applicationProcesses(): HasMany
-    {
-        return $this->hasMany(ApplicationProcess::class);
-    }
 }

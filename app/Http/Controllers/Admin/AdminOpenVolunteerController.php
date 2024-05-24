@@ -3,16 +3,30 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\OpenVolunteerRequest;
+use App\Models\OpenVolunteer;
+use App\Models\VolunteerType;
+use App\Services\FileService;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class AdminOpenVolunteerController extends Controller
 {
+    private const DIR = 'files/volunteer/';
+    private $fileService;
+
+    public function __construct(FileService $fileService)
+    {
+        $this->fileService = $fileService;
+    }
+
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.volunteer.index');
+        $openVolunteers = OpenVolunteer::orderByDesc('id')->get();
+        return view('admin.volunteer.index', compact('openVolunteers'));
     }
 
     /**
@@ -20,15 +34,22 @@ class AdminOpenVolunteerController extends Controller
      */
     public function create()
     {
-        return view('admin.volunteer.add-open-volunteer');
+        $volunteerTypes = VolunteerType::all();
+        return view('admin.volunteer.add-open-volunteer', compact('volunteerTypes'));
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(OpenVolunteerRequest $request)
     {
-        //
+        $file = $request->file('image');
+        $image = $this->fileService->handleFileUpload($file, self::DIR);
+
+        $data = $this->fileService->prepareData($request, $image);
+        OpenVolunteer::create($data);
+
+        return redirect('/admin/open-volunteer');
     }
 
     /**
@@ -36,7 +57,8 @@ class AdminOpenVolunteerController extends Controller
      */
     public function show(string $id)
     {
-        return view('admin.volunteer.open-volunteer-details');
+        $openVolunteer = OpenVolunteer::findOrFail($id);
+        return view('admin.volunteer.open-volunteer-details', compact('openVolunteer'));
     }
 
     /**
@@ -44,15 +66,23 @@ class AdminOpenVolunteerController extends Controller
      */
     public function edit(string $id)
     {
-        return view('admin.volunteer.edit-open-volunteer');
+        $openVolunteer = OpenVolunteer::findOrFail($id);
+        $volunteerTypes = VolunteerType::all();
+        return view('admin.volunteer.edit-open-volunteer', compact('openVolunteer', 'volunteerTypes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(OpenVolunteerRequest $request, string $id)
     {
-        //
+        $openVolunteer = OpenVolunteer::findOrFail($id);
+        $file = $request->file('image');
+
+        $openVolunteer->image = $this->fileService->handleFileUpdate($file, $openVolunteer->image, self::DIR);
+        $openVolunteer->update($request->except(['image']));
+
+        return redirect('/admin/open-volunteer/' . $id);
     }
 
     /**
@@ -60,6 +90,11 @@ class AdminOpenVolunteerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $openVolunteer = OpenVolunteer::findOrFail($id);
+
+        File::delete(self::DIR . $openVolunteer->image);
+        $openVolunteer->delete();
+
+        return redirect('/admin/open-volunteer/');
     }
 }

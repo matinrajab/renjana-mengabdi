@@ -12,6 +12,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description"
         content="These template is suitable for charity , NGO , non-profit organization , donation , church or a fundraising website.">
@@ -19,14 +20,14 @@
         content="charity, causes, donate, charity foundation, charity hub, charity theme, donations, non profit, fundraiser,social, ngo, non-profit, nonprofit, organization, volunteer">
     <meta name="author" content="initTheme">
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Charity & Donation HTML Template">
+    <meta property="og:title" content="Renjana Mengabdi Indonesia">
     <meta property="og:site_name" content="donate Website">
     <meta property="og:site_name" content="Charitfix">
     <meta property="og:url" content="www.Charitfix.com">
     <meta property="og:image" content="www.Charitfix.com">
     <meta property="og:description"
         content="These template is suitable for charity , NGO ,donate,fundraiser, non-profit organization">
-    <meta name="twitter:title" content="Charity & Donation HTML Template">
+    <meta name="twitter:title" content="Renjana Mengabdi Indonesia">
     <meta name="twitter:description"
         content="These template is suitable for charity , NGO ,donate,fundraiser, non-profit organization">
     <meta name="twitter:image" content="www.Charitfix.com">
@@ -396,7 +397,8 @@
                                                     </div>
                                                 </div>
                                             </div>
-                                            <a href="events/{{ $event->id }}" class="btn donate-btn w-100">More
+                                            <a href="{{ route('events.show', $event) }}"
+                                                class="btn donate-btn w-100">More
                                                 Details</a>
                                         </div>
                                     </div>
@@ -568,7 +570,7 @@
                                         </div>
                                     </div>
                                 </div>
-                                <div class="button-section"><a href="blogs/{{ $blog->id }}"
+                                <div class="button-section"><a href="{{ route('blogs.show', $blog) }}"
                                         class="read-btn">Read
                                         More</a>
                                 </div>
@@ -608,6 +610,12 @@
         </div>
         <!-- End-of Gallery -->
     </main>
+
+    <a href="https://wa.me/{{ $whatsappNumber }}">
+        <button class="action-button">
+            <i class="ri-whatsapp-line"></i>
+        </button>
+    </a>
 
     <!-- Footer S t a r t -->
     <footer>

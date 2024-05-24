@@ -57,7 +57,7 @@
                                         <h4 class="title text-capitalize"><a href="blog-details.html">
                                                 {{ $item->program_name }} </a></h4>
                                         <p class="subtitle">
-                                            {{ substr($item->description, 0, 100) }}...
+                                            {!! nl2br(substr($item->description, 0, 100)) !!}...
                                         </p>
                                         <a href="{{ route('open-volunteers.show', $item) }}" class="imp-link">
                                             More Details <i class="ri-arrow-right-line"></i>

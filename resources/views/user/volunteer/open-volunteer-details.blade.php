@@ -77,21 +77,13 @@
                     <div class="education-section">
                         <h4 class="title">Requirements</h4>
                         <div class="education-box">
-                            <ul class="key-points">
-                                @foreach ($openVolunteer->volunteerRequirements as $req)
-                                    <li class="point"> {{ $req->content }} </li>
-                                @endforeach
-                            </ul>
+                            {{ $openVolunteer->requirements }}
                         </div>
                     </div>
                     <div class="education-section">
                         <h4 class="title">Application Process</h4>
                         <div class="education-box">
-                            <ul class="key-points">
-                                @foreach ($openVolunteer->applicationProcesses as $process)
-                                    <li class="point"> {{ $process->content }} </li>
-                                @endforeach
-                            </ul>
+                            {{ $openVolunteer->application_process }}
                         </div>
                     </div>
                 </div>

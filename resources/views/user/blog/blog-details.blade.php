@@ -48,9 +48,7 @@
                                     </div>
                                 </div>
                                 <h4 class="title"> {{ $blog->title }} </h4>
-                                <p class="subtitle">
-                                    {!! nl2br($blog->content) !!}
-                                </p>
+                                <p class="subtitle"> {!! nl2br($blog->content) !!} </p>
                                 <div class="divider"></div>
                                 <div class="quote-with-text">
                                     <div class="quote">
