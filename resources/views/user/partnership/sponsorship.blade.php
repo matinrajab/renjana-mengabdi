@@ -50,4 +50,44 @@
         </div>
     </div>
     <!-- End-of Privacy policy-->
+
+    <!-- Our event S t a r t-->
+    @if ($sponsor->isNotEmpty())
+        <section class="blog-section-three bottom-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-50">
+                            <span class="sub-tittle text-capitalize font-600">Sponsorship</span>
+                            <h2 class="title font-700">Renjana Mengabdi Sponsorship</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row gy-24 row justify-content-center">
+                    @foreach ($sponsor as $item)
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 view-wrapper">
+                            <div class="single-blog h-calc">
+                                <div class="blog-img">
+                                    <a href="blog-details.html" class="img-fluid w-100 h-20">
+                                        <img src="files/sponsor/{{ $item->image }}" class="img-fluid w-100 h-20"
+                                            alt="img">
+                                    </a>
+                                </div>
+                                <div class="blog-info">
+                                    <div class="d-flex justify-content-center align-items-center">
+                                        <div class="blog-info-title">
+                                            <h4 class="title text-capitalize"><a href="blog-details.html">
+                                                    {{ $item->name }} </a></h4>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+    @endif
+    <!-- End-of All Product -->
 @endsection

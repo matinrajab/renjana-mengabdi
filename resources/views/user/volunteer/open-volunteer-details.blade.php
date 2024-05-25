@@ -77,13 +77,13 @@
                     <div class="education-section">
                         <h4 class="title">Requirements</h4>
                         <div class="education-box">
-                            {{ $openVolunteer->requirements }}
+                            {!! nl2br($openVolunteer->requirements) !!}
                         </div>
                     </div>
                     <div class="education-section">
                         <h4 class="title">Application Process</h4>
                         <div class="education-box">
-                            {{ $openVolunteer->application_process }}
+                            {!! nl2br($openVolunteer->application_process) !!}
                         </div>
                     </div>
                 </div>

@@ -46,4 +46,94 @@
             @endforeach
         </div>
     </div>
+
+    <div class="col-12 mt-4">
+        <div class="card mb-4">
+            <div class="card-header pb-0 p-3">
+                <h6 class="mb-4">Partner</h6>
+            </div>
+            <div class="card-body p-3">
+                <div class="row">
+                    @foreach ($partners as $partner)
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card card-blog card-plain">
+                                <div class="position-relative">
+                                    <a class="d-block shadow-xl border-radius-xl">
+                                        <img src="{{ asset('files') }}/partner/{{ $partner->image }}" alt="img-blur-shadow"
+                                            class="img-fluid shadow border-radius-xl">
+                                    </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                    <a href="javascript:;">
+                                        <h5 class="mb-4"> {{ $partner->name }} </h5>
+                                    </a>
+                                    <div class="d-flex gap-2 align-items-center">
+                                        <a href="/admin/partner/edit/{{ $partner->id }}"
+                                            class="btn btn-outline-primary btn-sm mb-0">Edit</a>
+                                        <a href="/admin/partner/delete/{{ $partner->id }}"
+                                            class="btn bg-gradient-danger btn-sm mb-0">delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card h-100 card-plain border">
+                            <div class="card-body d-flex flex-column justify-content-center text-center">
+                                <a href="/admin/partner/add">
+                                    <i class="fa fa-plus text-secondary mb-3"></i>
+                                    <h5 class=" text-secondary"> New Partner </h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-12 mt-4">
+        <div class="card mb-4">
+            <div class="card-header pb-0 p-3">
+                <h6 class="mb-4">Sponsor</h6>
+            </div>
+            <div class="card-body p-3">
+                <div class="row">
+                    @foreach ($sponsors as $sponsor)
+                        <div class="col-xl-3 col-md-6 mb-4">
+                            <div class="card card-blog card-plain">
+                                <div class="position-relative">
+                                    <a class="d-block shadow-xl border-radius-xl">
+                                        <img src="{{ asset('files') }}/sponsor/{{ $sponsor->image }}"
+                                            alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">
+                                    </a>
+                                </div>
+                                <div class="card-body px-1 pb-0">
+                                    <a href="javascript:;">
+                                        <h5 class="mb-4"> {{ $sponsor->name }} </h5>
+                                    </a>
+                                    <div class="d-flex gap-2 align-items-center">
+                                        <a href="/admin/sponsor/edit/{{ $sponsor->id }}"
+                                            class="btn btn-outline-primary btn-sm mb-0">Edit</a>
+                                        <a href="/admin/sponsor/delete/{{ $sponsor->id }}"
+                                            class="btn bg-gradient-danger btn-sm mb-0">delete</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                    <div class="col-xl-3 col-md-6 mb-4">
+                        <div class="card h-100 card-plain border">
+                            <div class="card-body d-flex flex-column justify-content-center text-center">
+                                <a href="/admin/sponsor/add">
+                                    <i class="fa fa-plus text-secondary mb-3"></i>
+                                    <h5 class=" text-secondary"> New Sponsor </h5>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 @endsection

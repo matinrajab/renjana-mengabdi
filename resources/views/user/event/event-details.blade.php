@@ -85,38 +85,40 @@
     <!--End-of Donation Payment -->
 
     <!-- Blog S t a r t -->
-    <section class="blog-section-three bottom-padding">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-7">
-                    <!-- Section Tittle -->
-                    <div class="section-tittle text-center mb-50">
-                        <span class="sub-tittle text-capitalize font-600">gallery</span>
-                        <h2 class="title font-700">The Best Moments</h2>
+    @if ($event->galleries->isNotEmpty())
+        <section class="blog-section-three bottom-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-50">
+                            <span class="sub-tittle text-capitalize font-600">gallery</span>
+                            <h2 class="title font-700">The Best Moments</h2>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="row gy-24">
-                @foreach ($event->galleries as $gallery)
-                    <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 view-wrapper">
-                        <div class="single-blog h-calc">
-                            <div class="blog-img">
-                                <img src="{{ asset('files') }}/gallery/{{ $gallery->image }}" class="img-fluid w-100"
-                                    alt="img">
-                            </div>
-                            <div class="blog-info">
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <div class="blog-info-title">
-                                        <h4 class="title text-capitalize">{{ $gallery->title }}</h4>
-                                        <p class="subtitle">{{ $gallery->caption }}</p>
+                <div class="row gy-24 justify-content-center">
+                    @foreach ($event->galleries as $gallery)
+                        <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 view-wrapper">
+                            <div class="single-blog h-calc">
+                                <div class="blog-img">
+                                    <img src="{{ asset('files') }}/gallery/{{ $gallery->image }}" class="img-fluid w-100"
+                                        alt="img">
+                                </div>
+                                <div class="blog-info">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="blog-info-title">
+                                            <h4 class="title text-capitalize">{{ $gallery->title }}</h4>
+                                            <p class="subtitle">{{ $gallery->caption }}</p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                @endforeach
+                    @endforeach
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+    @endif
     <!-- End-of Blog -->
 @endsection

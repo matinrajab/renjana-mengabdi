@@ -4,7 +4,9 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\PartnershipAndSponsorshipRequest;
+use App\Models\Partner;
 use App\Models\PartnershipAndSponsorship;
+use App\Models\Sponsor;
 use Illuminate\Http\Request;
 
 class AdminPartnershipAndSponsorshipController extends Controller
@@ -15,7 +17,9 @@ class AdminPartnershipAndSponsorshipController extends Controller
     public function index()
     {
         $partnership = PartnershipAndSponsorship::all();
-        return view('admin.partnership.index', ['partnership' => $partnership]);
+        $partners = Partner::orderByDesc('id')->get();
+        $sponsors = Sponsor::orderByDesc('id')->get();
+        return view('admin.partnership.index', compact('partnership', 'partners', 'sponsors'));
     }
 
     /**

@@ -9,8 +9,10 @@ use App\Http\Controllers\Admin\AdminGalleryController;
 use App\Http\Controllers\Admin\AdminHomepageController;
 use App\Http\Controllers\Admin\AdminMissionController;
 use App\Http\Controllers\Admin\AdminOpenVolunteerController;
+use App\Http\Controllers\Admin\AdminPartnerController;
 use App\Http\Controllers\Admin\AdminPartnershipAndSponsorshipController;
 use App\Http\Controllers\Admin\AdminSlideBannerController;
+use App\Http\Controllers\Admin\AdminSponsorController;
 use App\Http\Controllers\Admin\AdminTeamController;
 use App\Http\Controllers\Admin\AdminValueController;
 use App\Http\Controllers\Auth\LoginController;
@@ -133,6 +135,22 @@ Route::middleware([
             Route::get('/', [AdminPartnershipAndSponsorshipController::class, 'index']);
             Route::get('edit/{id}', [AdminPartnershipAndSponsorshipController::class, 'edit']);
             Route::put('update/{id}', [AdminPartnershipAndSponsorshipController::class, 'update']);
+        });
+
+        Route::prefix('partner')->group(function () {
+            Route::get('add', [AdminPartnerController::class, 'create']);
+            Route::post('store', [AdminPartnerController::class, 'store']);
+            Route::get('edit/{id}', [AdminPartnerController::class, 'edit']);
+            Route::put('update/{id}', [AdminPartnerController::class, 'update']);
+            Route::get('delete/{id}', [AdminPartnerController::class, 'destroy']);
+        });
+
+        Route::prefix('sponsor')->group(function () {
+            Route::get('add', [AdminSponsorController::class, 'create']);
+            Route::post('store', [AdminSponsorController::class, 'store']);
+            Route::get('edit/{id}', [AdminSponsorController::class, 'edit']);
+            Route::put('update/{id}', [AdminSponsorController::class, 'update']);
+            Route::get('delete/{id}', [AdminSponsorController::class, 'destroy']);
         });
 
         Route::prefix('company')->group(function () {
