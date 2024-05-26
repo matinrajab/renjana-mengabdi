@@ -203,30 +203,6 @@
     slider- testimonial area-active
   ----------------------------------------------*/
     // $('.testimonial-slider').length > 0 &&
-    $(".testimonial-slider").slick({
-        dots: true,
-        infinite: true,
-        autoplaySpeed: 400,
-        arrows: true,
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        autoplay: false,
-        // rtl: true, // Enable RTL support
-        prevArrow:
-            '<button type="button" class="slick-prev slick-arrow"><i class="ri-arrow-left-line"></i></button>',
-        nextArrow:
-            '<button type="button" class="slick-next slick-arrow"><i class="ri-arrow-right-line"></i></button>',
-        customPaging: function (slider, i) {
-            // Custom content for each dot
-            return `<div class="slick-custom-dot">
-                  <div class="testimonial-img-horizontal">
-                      <img class="w-100" src="user/assets/images/gallery/testimonial-${
-                          i + 1
-                      }.png" alt="image">
-                  </div>
-              </div>`;
-        },
-    });
 
     /*----------------------------------------------
     slider - Testimonial Area-active 02

@@ -17,25 +17,12 @@ class AdminGalleryController extends Controller
     {
         $this->fileService = $fileService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create(string $eventId)
     {
         return view('admin.event.add-gallery', ['eventId' => $eventId]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(GalleryRequest $request, string $eventId)
     {
         $file = $request->file('image');
@@ -49,26 +36,12 @@ class AdminGalleryController extends Controller
         return redirect('/admin/events/' . $eventId);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $gallery = Gallery::findOrFail($id);
         return view('admin.event.edit-gallery', ['gallery' => $gallery]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(GalleryRequest $request, string $id)
     {
         $gallery = Gallery::findOrFail($id);
@@ -80,9 +53,6 @@ class AdminGalleryController extends Controller
         return redirect('/admin/events/' . $gallery->event_id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $gallery = Gallery::findOrFail($id);

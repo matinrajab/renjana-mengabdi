@@ -20,27 +20,18 @@ class AdminOpenVolunteerController extends Controller
         $this->fileService = $fileService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $openVolunteers = OpenVolunteer::orderByDesc('id')->get();
         return view('admin.volunteer.index', compact('openVolunteers'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         $volunteerTypes = VolunteerType::all();
         return view('admin.volunteer.add-open-volunteer', compact('volunteerTypes'));
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(OpenVolunteerRequest $request)
     {
         $file = $request->file('image');
@@ -52,18 +43,12 @@ class AdminOpenVolunteerController extends Controller
         return redirect('/admin/open-volunteer');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $openVolunteer = OpenVolunteer::findOrFail($id);
         return view('admin.volunteer.open-volunteer-details', compact('openVolunteer'));
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $openVolunteer = OpenVolunteer::findOrFail($id);
@@ -71,9 +56,6 @@ class AdminOpenVolunteerController extends Controller
         return view('admin.volunteer.edit-open-volunteer', compact('openVolunteer', 'volunteerTypes'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(OpenVolunteerRequest $request, string $id)
     {
         $openVolunteer = OpenVolunteer::findOrFail($id);
@@ -85,9 +67,6 @@ class AdminOpenVolunteerController extends Controller
         return redirect('/admin/open-volunteer/' . $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $openVolunteer = OpenVolunteer::findOrFail($id);

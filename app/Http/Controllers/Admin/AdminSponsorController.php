@@ -18,25 +18,12 @@ class AdminSponsorController extends Controller
     {
         $this->fileService = $fileService;
     }
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.partnership.add-sponsor');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(PartnerSponsorRequest $request)
     {
         $file = $request->file('image');
@@ -49,26 +36,12 @@ class AdminSponsorController extends Controller
         return redirect('/admin/partnership');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $sponsor = Sponsor::findOrFail($id);
         return view('admin.partnership.edit-sponsor', ['sponsor' => $sponsor]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(PartnerSponsorRequest $request, string $id)
     {
         $sponsor = Sponsor::findOrFail($id);
@@ -80,9 +53,6 @@ class AdminSponsorController extends Controller
         return redirect('/admin/partnership/');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $sponsor = Sponsor::findOrFail($id);

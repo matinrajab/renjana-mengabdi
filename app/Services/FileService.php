@@ -27,10 +27,10 @@ class FileService
         return $currentImage;
     }
 
-    public function prepareData($request, $image)
+    public function prepareData($request, $image, $image_column_name = 'image')
     {
         $data = $request->all();
-        $data['image'] = $image;
+        $data[$image_column_name] = $image;
 
         return $data;
     }

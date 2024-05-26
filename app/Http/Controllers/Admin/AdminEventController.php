@@ -18,26 +18,17 @@ class AdminEventController extends Controller
         $this->fileService = $fileService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $events = Event::orderByDesc('id')->get();
         return view('admin.event.index', ['events' => $events]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.event.add-event');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(EventRequest $request)
     {
         $file = $request->file('image');
@@ -49,27 +40,18 @@ class AdminEventController extends Controller
         return redirect('/admin/events');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $event = Event::findOrFail($id);
         return view('admin.event.event-details', ['event' => $event]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $event = Event::findOrFail($id);
         return view('admin.event.edit-event', ['event' => $event]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(EventRequest $request, string $id)
     {
         $event = Event::findOrFail($id);
@@ -81,9 +63,6 @@ class AdminEventController extends Controller
         return redirect('/admin/events/' . $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $event = Event::findOrFail($id);

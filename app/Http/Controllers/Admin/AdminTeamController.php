@@ -18,25 +18,11 @@ class AdminTeamController extends Controller
         $this->fileService = $fileService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.company.add-team');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(TeamRequest $request)
     {
         $file = $request->file('image');
@@ -48,26 +34,12 @@ class AdminTeamController extends Controller
         return redirect('/admin/company');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $team = Team::findOrFail($id);
         return view('admin.company.edit-team', ['team' => $team]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(TeamRequest $request, string $id)
     {
         $team = Team::findOrFail($id);
@@ -79,9 +51,6 @@ class AdminTeamController extends Controller
         return redirect('/admin/company');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $team = Team::findOrFail($id);

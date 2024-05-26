@@ -19,26 +19,17 @@ class AdminBlogController extends Controller
         $this->fileService = $fileService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $blogs = Blog::orderByDesc('id')->get();
         return view('admin.blog.index', ['blogs' => $blogs]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.blog.add-blog');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(BlogRequest $request)
     {
         $file = $request->file('image');
@@ -50,27 +41,18 @@ class AdminBlogController extends Controller
         return redirect('/admin/blogs');
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $blog = Blog::findOrFail($id);
         return view('admin.blog.blog-details', ['blog' => $blog]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $blog = Blog::findOrFail($id);
         return view('admin.blog.edit-blog', ['blog' => $blog]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(BlogRequest $request, string $id)
     {
         $blog = Blog::findOrFail($id);
@@ -82,9 +64,6 @@ class AdminBlogController extends Controller
         return redirect('/admin/blogs/' . $id);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $blog = Blog::findOrFail($id);

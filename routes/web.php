@@ -14,6 +14,7 @@ use App\Http\Controllers\Admin\AdminPartnershipAndSponsorshipController;
 use App\Http\Controllers\Admin\AdminSlideBannerController;
 use App\Http\Controllers\Admin\AdminSponsorController;
 use App\Http\Controllers\Admin\AdminTeamController;
+use App\Http\Controllers\Admin\AdminTestimonialController;
 use App\Http\Controllers\Admin\AdminValueController;
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
@@ -85,6 +86,19 @@ Route::middleware([
             Route::get('edit/{id}', [AdminSlideBannerController::class, 'edit']);
             Route::put('update/{id}', [AdminSlideBannerController::class, 'update']);
             Route::get('delete/{id}', [AdminSlideBannerController::class, 'destroy']);
+        });
+
+        Route::prefix('testimonials')->group(function () {
+            Route::get('/', [AdminTestimonialController::class, 'index']);
+            Route::get('{id}', [AdminTestimonialController::class, 'show']);
+        });
+
+        Route::prefix('testimonial')->group(function () {
+            Route::get('add', [AdminTestimonialController::class, 'create']);
+            Route::post('store', [AdminTestimonialController::class, 'store']);
+            Route::get('edit/{id}', [AdminTestimonialController::class, 'edit']);
+            Route::put('update/{id}', [AdminTestimonialController::class, 'update']);
+            Route::get('delete/{id}', [AdminTestimonialController::class, 'destroy']);
         });
 
         Route::prefix('open-volunteer')->group(function () {

@@ -19,33 +19,6 @@ class AdminHomepageController extends Controller
         $this->fileService = $fileService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
     public function show()
     {
         $home = Homepage::first();
@@ -54,9 +27,6 @@ class AdminHomepageController extends Controller
         return view('admin.home.index', ['home' => $home, 'missions' => $missions, 'values' => $values]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit()
     {
         $home = Homepage::first();
@@ -65,9 +35,6 @@ class AdminHomepageController extends Controller
         return view('admin.home.edit-homepage', ['home' => $home, 'missions' => $missions, 'values' => $values]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(HomepageRequest $request)
     {
         $home = Homepage::first();
@@ -82,13 +49,5 @@ class AdminHomepageController extends Controller
         $home->update($request->except(['image_1', 'image_2']));
 
         return redirect('/admin/homepage');
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
-    {
-        //
     }
 }

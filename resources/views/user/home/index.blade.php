@@ -425,101 +425,26 @@
                 </div>
                 <div class="row justify-content-center g-24">
                     <div class="col-lg-10 col-12 testimonial-slider">
-                        <div class="single-testimonial position-relative">
-                            <div class="client-info">
-                                <div class="client-details">
-                                    <h3 class="name">Robart Jonson</h3>
-                                    <p class="location">United , Canada</p>
+                        @foreach ($testimonials as $testimonial)
+                            <div class="single-testimonial position-relative">
+                                <div class="client-info">
+                                    <div class="client-details">
+                                        <h3 class="name"> {{ $testimonial->name }} </h3>
+                                        <p class="location"> {{ $testimonial->title }} </p>
+                                    </div>
                                 </div>
-                                <div class="rating">
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                </div>
-                            </div>
-                            <div class="position-relative">
-                                <p class="pera">
-                                    <i>These questions are used to provoke thought and discussion. They can be used to
-                                        challenge the other
-                                        person's assumptions, such as "Do you really think that's true?", or to get them
-                                        to think about a
-                                        different perspective, such as "What if we tried it this way? The specific
-                                        questions to ask may vary
-                                        depending on the context and the information you are seeking.</i>
-                                </p>
-                                <div class="position-absolute quote">
-                                    <div class="rounded-btn">
-                                        <i class="ri-double-quotes-r"></i>
+                                <div class="position-relative">
+                                    <p class="pera">
+                                        <i> {!! nl2br($testimonial->content) !!} </i>
+                                    </p>
+                                    <div class="position-absolute quote">
+                                        <div class="rounded-btn">
+                                            <i class="ri-double-quotes-r"></i>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="single-testimonial position-relative">
-                            <div class="client-info">
-                                <div class="client-details">
-                                    <h3 class="name">Adam John</h3>
-                                    <p class="location">United , UAE</p>
-                                </div>
-
-                                <div class="rating">
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                </div>
-                            </div>
-                            <div class="position-relative">
-                                <p class="pera pb-80">
-                                    <i>These questions are used to provoke thought and discussion. They can be used to
-                                        challenge the other
-                                        person's assumptions, such as "Do you really think that's true?", or to get them
-                                        to think about a
-                                        different perspective, such as "What if we tried it this way? The specific
-                                        questions to ask may vary
-                                        depending on the context and the information you are seeking.</i>
-                                </p>
-                                <div class="position-absolute quote">
-                                    <div class="rounded-btn">
-                                        <i class="ri-double-quotes-r"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="single-testimonial position-relative">
-                            <div class="client-info">
-                                <div class="client-details">
-                                    <h3 class="name">John Doe</h3>
-                                    <p class="location">Mexico, USA</p>
-                                </div>
-
-                                <div class="rating">
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                    <i class="ri-star-fill"></i>
-                                </div>
-                            </div>
-                            <div class="position-relative">
-                                <p class="pera pb-80">
-                                    <i>These questions are used to provoke thought and discussion. They can be used to
-                                        challenge the other
-                                        person's assumptions, such as "Do you really think that's true?", or to get them
-                                        to think about a
-                                        different perspective, such as "What if we tried it this way? The specific
-                                        questions to ask may vary
-                                        depending on the context and the information you are seeking.</i>
-                                </p>
-                                <div class="position-absolute quote">
-                                    <div class="rounded-btn">
-                                        <i class="ri-double-quotes-r"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>
@@ -636,21 +561,21 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul class="listing" id="navigation2">
-                                        <li class="single-list"><a href="index.html" class="single">Home</a>
-                                        </li>
-                                        <li class="single-list"><a href="donation.html" class="single">Donation</a>
-                                        </li>
-                                        <li class="single-list"><a href="about.html" class="single">About</a></li>
-                                        <li class="single-list"><a href="blog.html" class="single">Blog</a></li>
-                                        <li class="single-list"><a href="contact-us.html" class="single">Contact</a>
-                                        </li>
+                                        <div class="single-list"><a href="index.html" class="single">Home</a>
+                                        </div>
+                                        <div class="single-list"><a href="donation.html" class="single">Donation</a>
+                                        </div>
+                                        <div class="single-list"><a href="about.html" class="single">About</a></div>
+                                        <div class="single-list"><a href="blog.html" class="single">Blog</a></div>
+                                        <div class="single-list"><a href="contact-us.html" class="single">Contact</a>
+                                        </div>
                                     </ul>
                                 </nav>
                             </div>
                             <!-- Right button -->
                             <ul class="cart">
-                                <li class="cart-list"><a href="donate-payment.html" class="donate-btn">Donate</a>
-                                </li>
+                                <div class="cart-list"><a href="donate-payment.html" class="donate-btn">Donate</a>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -661,21 +586,21 @@
                         <div class="footer-link">
                             <h4 class="title">Explore Links</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">About Company</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Latest Projects</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Latest Blog</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Our Testimonials</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Our Mission</a>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -683,21 +608,21 @@
                         <div class="footer-link">
                             <h4 class="title">Get Support</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">About</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">How it Works</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Knowledge Hub</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Success Stories</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Contact</a>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -705,30 +630,30 @@
                         <div class="footer-link">
                             <h4 class="title">Get Support</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <div class="d-flex align-items-center gap-10 mb-20">
                                         <div class="imp-icon">
                                             <i class="ri-mail-fill"></i>
                                         </div>
                                         <a class="single" href="javascript:void(0)">donation@gmail.com</a>
                                     </div>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <div class="d-flex align-items-center gap-10 mb-20">
                                         <div class="imp-icon">
                                             <i class="ri-phone-fill"></i>
                                         </div>
                                         <a class="single" href="javascript:void(0)">(+88) 111-222-333</a>
                                     </div>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <div class="d-flex align-items-center gap-10 mb-20">
                                         <div class="imp-icon">
                                             <i class="ri-map-pin-2-fill"></i>
                                         </div>
                                         <a class="single" href="javascript:void(0)">Tropical Cyclone, Volcano</a>
                                     </div>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -736,7 +661,7 @@
                         <div class="footer-link">
                             <h4 class="title">Projects</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <div class="d-flex gap-20 mb-20 align-items-center">
                                         <div class="project-img">
                                             <a href="donation-details.html">
@@ -752,8 +677,8 @@
                                             </h4>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <div class="d-flex gap-20">
                                         <div class="project-img">
                                             <a href="donation-details.html">
@@ -768,7 +693,7 @@
                                                     Help,</a></h4>
                                         </div>
                                     </div>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -785,19 +710,19 @@
                                     <p class="pera">Copyright © 2023 initTheme. All rights reserved.</p>
                                     <div class="footer-social-link">
                                         <ul class="listing">
-                                            <li class="single-list">
+                                            <div class="single-list">
                                                 <a class="single" href="#"><i class="ri-facebook-fill"></i></a>
-                                            </li>
-                                            <li class="single-list">
+                                            </div>
+                                            <div class="single-list">
                                                 <a class="single" href="#"><i class="ri-youtube-fill"></i></a>
-                                            </li>
-                                            <li class="single-list">
+                                            </div>
+                                            <div class="single-list">
                                                 <a class="single" href="#"><i
                                                         class="ri-instagram-line"></i></a>
-                                            </li>
-                                            <li class="single-list">
+                                            </div>
+                                            <div class="single-list">
                                                 <a class="single" href="#"><i class="ri-linkedin-fill"></i></a>
-                                            </li>
+                                            </div>
                                         </ul>
                                     </div>
                                 </div>
@@ -825,6 +750,34 @@
     <script src="{{ asset('user/assets') }}/js/plugin.js"></script>
     <!-- Main js-->
     <script src="{{ asset('user/assets') }}/js/main.js"></script>
+    <script>
+        $(document).ready(function() {
+            const testimonials = @json($testimonials);
+
+            const testimonialImages = testimonials.map((testimonial, index) => {
+                return `<div class="slick-custom-dot">
+                        <div class="testimonial-img-horizontal">
+                            <img class="w-100" src="files/testimonial/${testimonial.profile_picture}" alt="image">
+                        </div>
+                    </div>`;
+            });
+
+            $(".testimonial-slider").slick({
+                dots: true,
+                infinite: true,
+                autoplaySpeed: 400,
+                arrows: true,
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                autoplay: false,
+                prevArrow: '<button type="button" class="slick-prev slick-arrow"><i class="ri-arrow-left-line"></i></button>',
+                nextArrow: '<button type="button" class="slick-next slick-arrow"><i class="ri-arrow-right-line"></i></button>',
+                customPaging: function(slider, i) {
+                    return testimonialImages[i];
+                },
+            });
+        });
+    </script>
 </body>
 
 </html>

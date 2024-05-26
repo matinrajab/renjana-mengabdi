@@ -9,25 +9,11 @@ use Illuminate\Http\Request;
 
 class AdminMissionController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.home.add-mission');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(MissionRequest $request)
     {
         Mission::create($request->all());
@@ -35,17 +21,6 @@ class AdminMissionController extends Controller
         return redirect('/admin/homepage/edit');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $mission = Mission::findOrFail($id);
@@ -53,9 +28,6 @@ class AdminMissionController extends Controller
         return view('admin.home.edit-mission', ['mission' => $mission]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(MissionRequest $request, string $id)
     {
         $mission = Mission::findOrFail($id);
@@ -64,9 +36,6 @@ class AdminMissionController extends Controller
         return redirect('/admin/homepage/edit');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $mission = Mission::findOrFail($id);

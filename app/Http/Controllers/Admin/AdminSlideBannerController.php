@@ -19,26 +19,17 @@ class AdminSlideBannerController extends Controller
         $this->fileService = $fileService;
     }
 
-    /**
-     * Display a listing of the resource.
-     */
     public function index()
     {
         $banners = SlideBanner::orderByDesc('id')->get();
         return view('admin.slide_banner.index', ['banners' => $banners]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
     public function create()
     {
         return view('admin.slide_banner.add-banner');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
     public function store(SlideBannerRequest $request)
     {
         $file = $request->file('image');
@@ -50,26 +41,12 @@ class AdminSlideBannerController extends Controller
         return redirect('/admin/slide-banner');
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
     public function edit(string $id)
     {
         $banner = SlideBanner::findOrFail($id);
         return view('admin.slide_banner.edit-banner', ['banner' => $banner]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
     public function update(SlideBannerRequest $request, string $id)
     {
         $banner = SlideBanner::findOrFail($id);
@@ -81,9 +58,6 @@ class AdminSlideBannerController extends Controller
         return redirect('/admin/slide-banner');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
     public function destroy(string $id)
     {
         $banner = SlideBanner::findOrFail($id);
