@@ -16,13 +16,17 @@
                         enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="5" placeholder="Description" required name="description"> {{ $partnership->description }} </textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="5" placeholder="Description" required name="description"> {{ $partnership->description }} </textarea>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="benefits">Benefits</label>
-                            <textarea class="form-control" id="benefits" rows="5" placeholder="Benefits" required name="benefits"> {{ $partnership->benefits }} </textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="benefits">Benefits</label>
+                                <textarea class="form-control" id="benefits" rows="5" placeholder="Benefits" required name="benefits"> {{ $partnership->benefits }} </textarea>
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
@@ -49,3 +53,20 @@
         </div>
     </div>
 @endsection
+
+@push('scriptjs')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#benefits'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

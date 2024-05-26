@@ -54,13 +54,13 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <h6>Requirement</h6>
-                            <p class="text-gradient text-dark mb-2 text-sm">{{ $openVolunteer->requirements }}</p>
+                            <p class="text-gradient text-dark mb-2 text-sm">{!! nl2br($openVolunteer->requirements) !!}</p>
                         </div>
                     </div>
                     <div class="col-md-8">
                         <div class="form-group">
                             <h6>Application Proccess</h6>
-                            <p class="text-gradient text-dark mb-2 text-sm">{{ $openVolunteer->application_process }}</p>
+                            <p class="text-gradient text-dark mb-2 text-sm">{!! nl2br($openVolunteer->application_process) !!}</p>
                         </div>
                     </div>
                     <div class="col-md-8">

@@ -38,9 +38,9 @@
                                     <div class="donate-info-title">
                                         <h4 class="title text-capitalize"><a href="donation-details.html">
                                                 {{ $event->name }} </a></h4>
-                                        <p class="subtitle">
+                                        <div class="subtitle indented">
                                             {!! nl2br(substr($event->description, 0, 100)) !!}...
-                                        </p>
+                                        </div>
                                         <div class="flex justify-content-between mt-14 mb-20">
                                             <div class="flex gap-10">
                                                 <div class="charges">

@@ -51,9 +51,9 @@
                                         </div>
                                         <h4 class="title text-capitalize"><a href="blog-details.html">
                                                 {{ $blog->title }} </a></h4>
-                                        <p class="subtitle">
+                                        <div class="subtitle indented">
                                             {!! nl2br(substr($blog->content, 0, 100)) !!}...
-                                        </p>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

@@ -17,7 +17,7 @@
                                 class="single">Event</a></li>
                     </ul>
                 </nav>
-                <h1 class="title wow fadeInUp" data-wow-delay="0.1s"> event details </h1>
+                <h1 class="title wow fadeInUp text-capitalize" data-wow-delay="0.1s"> {{ $event->name }} </h1>
             </div>
         </div>
     </section>
@@ -33,7 +33,7 @@
                         <div class="small-tittle mb-50">
                             <h2 class="title text-capitalize font-600 position-relative">Event Description</h2>
                         </div>
-                        <div class="donate-content">
+                        <div class="donate-content indented">
                             <p class="pera">{!! nl2br($event->description) !!}</p>
                         </div>
                     </div>

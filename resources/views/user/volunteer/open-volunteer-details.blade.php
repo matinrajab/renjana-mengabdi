@@ -43,9 +43,9 @@
                         </div>
                         <div class="divider"></div>
                         <h4 class="title">Description</h4>
-                        <p class="pera">{!! nl2br($openVolunteer->description) !!}
-                        </p>
-                        <h4 class="title">Location & Date</h4>
+                        <div class="pera indented">{!! nl2br($openVolunteer->description) !!}
+                        </div>
+                        <h4 class="title mt-28">Location & Date</h4>
                         <div class="contact-list">
                             <div class="contact-icon-list">
                                 <div class="single-icon">
@@ -76,13 +76,13 @@
                     </div>
                     <div class="education-section">
                         <h4 class="title">Requirements</h4>
-                        <div class="education-box">
+                        <div class="education-box indented">
                             {!! nl2br($openVolunteer->requirements) !!}
                         </div>
                     </div>
                     <div class="education-section">
                         <h4 class="title">Application Process</h4>
-                        <div class="education-box">
+                        <div class="education-box indented">
                             {!! nl2br($openVolunteer->application_process) !!}
                         </div>
                     </div>

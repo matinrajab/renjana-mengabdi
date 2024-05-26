@@ -177,21 +177,21 @@
                         <div class="footer-link">
                             <h4 class="title">Explore Links</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">About Company</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Latest Projects</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Latest Blog</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Our Testimonials</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Our Mission</a>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -199,21 +199,21 @@
                         <div class="footer-link">
                             <h4 class="title">Get Support</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">About</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">How it Works</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Knowledge Hub</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Success Stories</a>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <a class="single" href="javascript:void(0)">Contact</a>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -221,30 +221,30 @@
                         <div class="footer-link">
                             <h4 class="title">Get Support</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <div class="d-flex align-items-center gap-10 mb-20">
                                         <div class="imp-icon">
                                             <i class="ri-mail-fill"></i>
                                         </div>
                                         <a class="single" href="javascript:void(0)">donation@gmail.com</a>
                                     </div>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <div class="d-flex align-items-center gap-10 mb-20">
                                         <div class="imp-icon">
                                             <i class="ri-phone-fill"></i>
                                         </div>
                                         <a class="single" href="javascript:void(0)">(+88) 111-222-333</a>
                                     </div>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <div class="d-flex align-items-center gap-10 mb-20">
                                         <div class="imp-icon">
                                             <i class="ri-map-pin-2-fill"></i>
                                         </div>
                                         <a class="single" href="javascript:void(0)">Tropical Cyclone, Volcano</a>
                                     </div>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>
@@ -252,7 +252,7 @@
                         <div class="footer-link">
                             <h4 class="title">Projects</h4>
                             <ul class="imp-link">
-                                <li class="single-list">
+                                <div class="single-list">
                                     <div class="d-flex gap-20 mb-20 align-items-center">
                                         <div class="project-img">
                                             <a href="donation-details.html">
@@ -268,8 +268,8 @@
                                             </h4>
                                         </div>
                                     </div>
-                                </li>
-                                <li class="single-list">
+                                </div>
+                                <div class="single-list">
                                     <div class="d-flex gap-20">
                                         <div class="project-img">
                                             <a href="donation-details.html">
@@ -284,7 +284,7 @@
                                                     Help,</a></h4>
                                         </div>
                                     </div>
-                                </li>
+                                </div>
                             </ul>
                         </div>
                     </div>

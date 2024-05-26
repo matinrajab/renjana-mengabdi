@@ -39,7 +39,7 @@
                     <div class="col-md-8">
                         <div class="form-group">
                             <h6>Vision</h6>
-                            <p class="text-gradient text-dark mb-2 text-sm">{{ $home->vision }}</p>
+                            <p class="text-gradient text-dark mb-2 text-sm">{!! nl2br($home->vision) !!}</p>
                         </div>
                     </div>
                     <div class="col-md-8">

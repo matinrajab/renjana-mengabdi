@@ -28,9 +28,11 @@
                                     name="title" onfocus="focused(this)" onfocusout="defocused(this)">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="content">Content</label>
-                            <textarea class="form-control" id="content" rows="10" placeholder="Content" required name="content"></textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="content">Content</label>
+                                <textarea class="form-control" id="content" rows="10" placeholder="Content" required name="content"></textarea>
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">

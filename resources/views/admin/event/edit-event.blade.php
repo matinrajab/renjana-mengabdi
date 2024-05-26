@@ -23,9 +23,11 @@
                                     onfocusout="defocused(this)">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="5" placeholder="Description" required name="description">{{ $event->description }}</textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="5" placeholder="Description" required name="description">{{ $event->description }}</textarea>
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
@@ -100,3 +102,13 @@
         </div>
     </div>
 @endsection
+
+@push('scriptjs')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

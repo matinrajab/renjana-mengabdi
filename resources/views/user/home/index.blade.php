@@ -293,7 +293,7 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-35">
                             <h2 class="title font-700 pb-15">About Us</h2>
-                            <p class="pera-subtitle mb-15">{!! nl2br($home->about_us) !!}</p>
+                            <div class="pera-subtitle mb-15 indented">{!! nl2br($home->about_us) !!}</div>
                         </div>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
@@ -304,7 +304,7 @@
                                 </h2>
                                 <div id="collapseOne" class="accordion-collapse collapse show"
                                     aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                                    <div class="accordion-body"> {{ $home->vision }} </div>
+                                    <div class="accordion-body"> {!! nl2br($home->vision) !!} </div>
                                 </div>
                             </div>
                             <div class="accordion-item">

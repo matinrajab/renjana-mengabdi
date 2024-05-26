@@ -31,17 +31,23 @@
                                     onfocusout="defocused(this)">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="3" placeholder="Description" name="description" required>{{ $home->description }}</textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="3" placeholder="Description" name="description" required>{{ $home->description }}</textarea>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="about_us">About Us</label>
-                            <textarea class="form-control" id="about_us" rows="10" placeholder="About Us" name="about_us" required>{{ $home->about_us }}</textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="about_us">About Us</label>
+                                <textarea class="form-control" id="about_us" rows="10" placeholder="About Us" name="about_us" required>{{ $home->about_us }}</textarea>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="vision">Vision</label>
-                            <textarea class="form-control" id="vision" rows="3" placeholder="Vision" name="vision" required>{{ $home->vision }}</textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="vision">Vision</label>
+                                <textarea class="form-control" id="vision" rows="3" placeholder="Vision" name="vision" required>{{ $home->vision }}</textarea>
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
@@ -96,8 +102,8 @@
                             <div class="form-group">
                                 <label for="cta_label" class="form-control-label">CTA Label</label>
                                 <input class="form-control" type="text" value="{{ $home->cta_label }}"
-                                    placeholder="CTA Label" id="cta_label" name="cta_label" required onfocus="focused(this)"
-                                    onfocusout="defocused(this)">
+                                    placeholder="CTA Label" id="cta_label" name="cta_label" required
+                                    onfocus="focused(this)" onfocusout="defocused(this)">
                             </div>
                         </div>
                         <div class="col-md-7">
@@ -174,3 +180,13 @@
         </div>
     </div>
 @endsection
+
+@push('scriptjs')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#about_us'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

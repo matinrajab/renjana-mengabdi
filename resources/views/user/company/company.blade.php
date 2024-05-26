@@ -29,7 +29,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="section-tittle mb-50">
                         <h2 class="title mb-20 font-700">About Us</h2>
-                        <p class="pera">{!! nl2br($company->history) !!}</p>
+                        <div class="pera indented">{!! nl2br($company->history) !!}</div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-6">

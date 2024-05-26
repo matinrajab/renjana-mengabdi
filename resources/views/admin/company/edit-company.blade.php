@@ -15,9 +15,11 @@
                     <form action="/admin/company/update" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class="form-group">
-                            <label for="history">History</label>
-                            <textarea class="form-control" id="history" rows="10" placeholder="History" required name="history">{{ $company->history }}</textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="history">History</label>
+                                <textarea class="form-control" id="history" rows="10" placeholder="History" required name="history">{{ $company->history }}</textarea>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="image" class="form-control-label">Image</label>
@@ -38,3 +40,13 @@
         </div>
     </div>
 @endsection
+
+@push('scriptjs')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#history'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

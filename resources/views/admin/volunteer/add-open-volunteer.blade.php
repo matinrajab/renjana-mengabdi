@@ -31,9 +31,11 @@
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="description">Description</label>
-                            <textarea class="form-control" id="description" rows="5" placeholder="Description" required name="description"></textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" id="description" rows="5" placeholder="Description" name="description"></textarea>
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
@@ -57,13 +59,13 @@
                         <div class="col-md-7">
                             <div class="form-group">
                                 <label for="requirements" class="form-control-label">Requirement</label>
-                                <textarea class="form-control" id="requirements" rows="5" placeholder="Requirement" required name="requirements"></textarea>
+                                <textarea class="form-control" id="requirements" rows="5" placeholder="Requirement" name="requirements"></textarea>
                             </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
                                 <label for="application_process" class="form-control-label">Application Proccess</label>
-                                <textarea class="form-control" id="application_process" rows="5" placeholder="Application Proccess" required
+                                <textarea class="form-control" id="application_process" rows="5" placeholder="Application Proccess"
                                     name="application_process"></textarea>
                             </div>
                         </div>
@@ -89,3 +91,23 @@
         </div>
     </div>
 @endsection
+
+@push('scriptjs')
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#requirements'))
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#application_process'))
+            .catch(error => {
+                console.error(error);
+            });
+    </script>
+@endpush

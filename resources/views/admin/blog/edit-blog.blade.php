@@ -23,9 +23,11 @@
                                     onfocusout="defocused(this)">
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label for="content">Content</label>
-                            <textarea class="form-control" id="content" rows="10" placeholder="Content" required name="content">{{ $blog->content }}</textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="content">Content</label>
+                                <textarea class="form-control" id="content" rows="10" placeholder="Content" required name="content">{{ $blog->content }}</textarea>
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
@@ -69,7 +71,7 @@
 @push('scriptjs')
     <script>
         ClassicEditor
-            .create(document.querySelector('#conten'))
+            .create(document.querySelector('#content'))
             .catch(error => {
                 console.error(error);
             });

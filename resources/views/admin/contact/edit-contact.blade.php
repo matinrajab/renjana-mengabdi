@@ -15,9 +15,11 @@
                     <form action="/admin/contact/update" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
-                        <div class="form-group">
-                            <label for="address">Address</label>
-                            <textarea class="form-control" id="address" rows="3" placeholder="Address" required name="address">{{ $contact->address }}</textarea>
+                        <div class="col-md-7">
+                            <div class="form-group">
+                                <label for="address">Address</label>
+                                <textarea class="form-control" id="address" rows="3" placeholder="Address" required name="address">{{ $contact->address }}</textarea>
+                            </div>
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">

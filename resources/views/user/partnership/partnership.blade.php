@@ -29,11 +29,11 @@
                     <!-- Single -->
                     <div class="single-terms mb-30">
                         <h5 class="title font-600">Description</h5>
-                        <p class="pera mb-20">{!! nl2br($partnership->description) !!}</p>
+                        <div class="pera mb-20 indented">{!! nl2br($partnership->description) !!}</div>
                     </div>
                     <div class="single-terms mb-30">
                         <h5 class="title font-600">Benefits</h5>
-                        <p class="pera mb-20">{!! nl2br($partnership->benefits) !!}</p>
+                        <div class="pera mb-20 indented">{!! nl2br($partnership->benefits) !!}</div>
                     </div>
                     <!-- Single -->
                     <div class="single-terms mb-0">
