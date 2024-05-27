@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAchievementController;
 use App\Http\Controllers\Admin\AdminBlogController;
 use App\Http\Controllers\Admin\AdminCompanyController;
 use App\Http\Controllers\Admin\AdminContactController;
+use App\Http\Controllers\Admin\AdminDashboardController;
 use App\Http\Controllers\Admin\AdminEventController;
 use App\Http\Controllers\Admin\AdminGalleryController;
 use App\Http\Controllers\Admin\AdminHomepageController;
@@ -57,6 +58,8 @@ Route::middleware([
     'verified',
 ])->group(function () {
     Route::prefix('admin')->group(function () {
+        Route::get('dashboard', [AdminDashboardController::class, 'index']);
+
         Route::prefix('homepage')->group(function () {
             Route::get('/', [AdminHomepageController::class, 'show']);
             Route::get('edit', [AdminHomepageController::class, 'edit']);
