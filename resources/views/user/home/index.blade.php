@@ -511,7 +511,7 @@
         <!-- End-of Blog -->
     </main>
 
-    <a href="https://wa.me/{{ $whatsappNumber }}">
+    <a href="https://wa.me/{{ $contact->phone_number }}">
         <button class="action-button">
             <i class="ri-whatsapp-line"></i>
         </button>
@@ -521,82 +521,26 @@
     <footer>
         <div class="footer-wrapper footer-bg-one">
             <div class="container">
-                <div class="footer-menu">
-                    <div class="col-lg-12">
-                        <div class="menu-wrapper d-flex align-items-center justify-content-between">
-                            <div class="header-left d-flex align-items-center justify-content-between">
-                                <!-- Logo-->
-                                <div class="logo">
-                                    <a href="index.html"><img
-                                            src="{{ asset('user/assets') }}/images/logo/logo-renjana-mengabdi.png"
-                                            style="height:80px;" alt="logo"></a>
-                                </div>
-                            </div>
-                            <!-- Footer-menu -->
-                            <div class="main-menu d-none d-lg-block">
-                                <nav>
-                                    <ul class="listing" id="navigation2">
-                                        <div class="single-list"><a href="/" class="single">Home</a>
-                                        </div>
-                                        <div class="single-list"><a href="donation.html" class="single">Donation</a>
-                                        </div>
-                                        <div class="single-list"><a href="about.html" class="single">About</a></div>
-                                        <div class="single-list"><a href="blog.html" class="single">Blog</a></div>
-                                        <div class="single-list"><a href="contact-us.html" class="single">Contact</a>
-                                        </div>
-                                    </ul>
-                                </nav>
-                            </div>
-                            <!-- Right button -->
-                            <ul class="cart">
-                                <div class="cart-list"><a href="donate-payment.html" class="donate-btn">Donate</a>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
                 <hr class="footer-line">
-                <div class="footer-imp-link row g-4 justify-content-between">
-                    <div class="col-xl-2 col-lg-6">
+                <div class="footer-imp-link row g-4 justify-content-center">
+                    <div class="col-xl-3 col-lg-6">
                         <div class="footer-link">
                             <h4 class="title">Explore Links</h4>
                             <ul class="imp-link">
                                 <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">About Company</a>
+                                    <a class="single" href="/">Home</a>
                                 </div>
                                 <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">Latest Projects</a>
+                                    <a class="single" href="/open-volunteers">Open Volunteer</a>
                                 </div>
                                 <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">Latest Blog</a>
+                                    <a class="single" href="/events">Latest Events</a>
                                 </div>
                                 <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">Our Testimonials</a>
+                                    <a class="single" href="/blogs">Latest Blogs</a>
                                 </div>
                                 <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">Our Mission</a>
-                                </div>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-6">
-                        <div class="footer-link">
-                            <h4 class="title">Get Support</h4>
-                            <ul class="imp-link">
-                                <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">About</a>
-                                </div>
-                                <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">How it Works</a>
-                                </div>
-                                <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">Knowledge Hub</a>
-                                </div>
-                                <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">Success Stories</a>
-                                </div>
-                                <div class="single-list">
-                                    <a class="single" href="javascript:void(0)">Contact</a>
+                                    <a class="single" href="/company">About Us</a>
                                 </div>
                             </ul>
                         </div>
@@ -610,7 +554,7 @@
                                         <div class="imp-icon">
                                             <i class="ri-mail-fill"></i>
                                         </div>
-                                        <a class="single" href="javascript:void(0)">donation@gmail.com</a>
+                                        <a class="single" href="javascript:void(0)"> {{ $contact->email }} </a>
                                     </div>
                                 </div>
                                 <div class="single-list">
@@ -618,15 +562,16 @@
                                         <div class="imp-icon">
                                             <i class="ri-phone-fill"></i>
                                         </div>
-                                        <a class="single" href="javascript:void(0)">(+88) 111-222-333</a>
+                                        <a class="single" href="javascript:void(0)"> {{ $contact->phone_number }}
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="single-list">
                                     <div class="d-flex align-items-center gap-10 mb-20">
                                         <div class="imp-icon">
-                                            <i class="ri-map-pin-2-fill"></i>
+                                            <i class="ri-instagram-fill"></i>
                                         </div>
-                                        <a class="single" href="javascript:void(0)">Tropical Cyclone, Volcano</a>
+                                        <a class="single" href="javascript:void(0)"> {{ $contact->instagram }} </a>
                                     </div>
                                 </div>
                             </ul>
@@ -634,41 +579,29 @@
                     </div>
                     <div class="col-xl-4 col-lg-6">
                         <div class="footer-link">
-                            <h4 class="title">Projects</h4>
+                            <h4 class="title">Open Volunteer</h4>
                             <ul class="imp-link">
-                                <div class="single-list">
-                                    <div class="d-flex gap-20 mb-20 align-items-center">
-                                        <div class="project-img">
-                                            <a href="donation-details.html">
-                                                <img src="{{ asset('user/assets') }}/images/gallery/project-1.png"
-                                                    alt="image">
-                                            </a>
-                                        </div>
+                                @foreach ($lastVolunteers as $item)
+                                    <div class="single-list">
+                                        <div class="d-flex gap-20 mb-20 align-items-center">
+                                            <div class="project-img">
+                                                <a href="{{ route('open-volunteers.show', $item) }}">
+                                                    <img src="{{ asset('files') }}/volunteer/{{ $item->image }}"
+                                                        style="max-width: 109px" alt="image">
+                                                </a>
+                                            </div>
 
-                                        <div class="project-info">
-                                            <p class="project-date">12.Oct.2023</p>
-                                            <h4 class="project-title"><a href="donation-details.html">18 Best Charity
-                                                    Marketing Champions</a>
-                                            </h4>
+                                            <div class="project-info">
+                                                <p class="project-date">
+                                                    {{ App\Helpers\DateFormatter::date($item->start_date) }}</p>
+                                                <h4 class="project-title"><a
+                                                        href="{{ route('open-volunteers.show', $item) }}">
+                                                        {{ $item->program_name }} </a>
+                                                </h4>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="single-list">
-                                    <div class="d-flex gap-20">
-                                        <div class="project-img">
-                                            <a href="donation-details.html">
-                                                <img src="{{ asset('user/assets') }}/images/gallery/project-2.png"
-                                                    alt="image">
-                                            </a>
-                                        </div>
-                                        <div class="project-info">
-                                            <p class="project-date">20.Oct.2023</p>
-                                            <h4 class="project-title"><a href="donation-details.html">Charity starts
-                                                    from home. You Can't Even
-                                                    Help,</a></h4>
-                                        </div>
-                                    </div>
-                                </div>
+                                @endforeach
                             </ul>
                         </div>
                     </div>
@@ -681,25 +614,19 @@
                     <div class="footer-border">
                         <div class="row">
                             <div class="col-xl-12">
-                                <div class="footer-copy-right text-center">
-                                    <p class="pera">Copyright © 2023 initTheme. All rights reserved.</p>
-                                    <div class="footer-social-link">
-                                        <ul class="listing">
-                                            <div class="single-list">
-                                                <a class="single" href="#"><i class="ri-facebook-fill"></i></a>
-                                            </div>
-                                            <div class="single-list">
-                                                <a class="single" href="#"><i class="ri-youtube-fill"></i></a>
-                                            </div>
-                                            <div class="single-list">
-                                                <a class="single" href="#"><i
-                                                        class="ri-instagram-line"></i></a>
-                                            </div>
-                                            <div class="single-list">
-                                                <a class="single" href="#"><i class="ri-linkedin-fill"></i></a>
-                                            </div>
-                                        </ul>
-                                    </div>
+                                <div class="footer-copy-right justify-content-center text-center">
+                                    <p class="pera">
+                                        Copyright ©
+                                        <script>
+                                            document.write(new Date().getFullYear())
+                                        </script>
+                                        <a href="/" class="font-weight-bold" target="_blank">Renjana
+                                            Mengabdi</a>
+                                        Development By
+                                        <a href="https://punggawastudio.com/" class="font-weight-bold"
+                                            target="_blank">Punggawa
+                                            Studio</a>
+                                    </p>
                                 </div>
                             </div>
                         </div>

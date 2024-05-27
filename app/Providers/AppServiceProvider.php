@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Models\ContactUs;
+use App\Models\OpenVolunteer;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
 
@@ -22,8 +23,12 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         View::composer(['user.layouts.app', 'user.home.index'], function ($view) {
-            $whatsappNumber = ContactUs::first()->phone_number;
-            $view->with('whatsappNumber', $whatsappNumber);
+            $contact = ContactUs::first();
+            $lastVolunteers = OpenVolunteer::orderByDesc('id')->limit(2)->get();
+            $view->with([
+                'contact' => $contact,
+                'lastVolunteers' => $lastVolunteers
+            ]);
         });
     }
 }
