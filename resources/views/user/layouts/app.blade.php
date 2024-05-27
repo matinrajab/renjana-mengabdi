@@ -99,7 +99,8 @@
                                                 </ul>
                                             </li>
                                             <li class="single-list"><a href="/company"
-                                                    class="single {{ isset($company_page) ? 'active' : '' }}">Company</a>
+                                                    class="single {{ isset($company_page) ? 'active' : '' }}">About
+                                                    Us</a>
                                             </li>
                                         </ul>
                                     </nav>
@@ -107,10 +108,6 @@
 
                                 <div class="header-right">
                                     <div class="cart">
-                                        <!-- search button -->
-                                        <a href="javascript:void(0)" class="rounded-btn search-bar"><i
-                                                class="ri-search-line"></i></a>
-                                        <a href="login.html" class="btn-primary-fill pill-btn">Log in</a>
                                     </div>
                                 </div>
                             </div>
@@ -153,7 +150,7 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul class="listing" id="navigation2">
-                                        <li class="single-list"><a href="index.html" class="single">Home</a></li>
+                                        <li class="single-list"><a href="/" class="single">Home</a></li>
                                         <li class="single-list"><a href="donation.html" class="single">Donation</a>
                                         </li>
                                         <li class="single-list"><a href="about.html" class="single">About</a></li>
@@ -341,6 +338,8 @@
     <script src="{{ asset('user/assets') }}/js/plugin.js"></script>
     <!-- Main js-->
     <script src="{{ asset('user/assets') }}/js/main.js"></script>
+
+    @stack('scriptjs')
 </body>
 
 </html>

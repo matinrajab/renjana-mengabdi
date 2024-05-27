@@ -12,7 +12,7 @@
             <div class="breadcrumb-text">
                 <nav aria-label="breadcrumb" class="breadcrumb-nav wow fadeInUp" data-wow-delay="0.0s">
                     <ul class="breadcrumb listing">
-                        <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
+                        <li class="breadcrumb-item single-list"><a href="/" class="single">Home</a></li>
                         <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
                                 class="single">Blog </a></li>
                     </ul>
@@ -493,32 +493,4 @@
     </section>
 
     <!-- End-of Blog-details -->
-
-    <!-- Gallery S t a r t -->
-    <div class="gallery-area">
-        <div class="gallery-slider d-flex">
-            <div class="gallery-img">
-                <img src="{{ asset('user/assets') }}/images/gallery/gallery-1.png" alt="img">
-            </div>
-            <div class="gallery-img">
-                <img src="{{ asset('user/assets') }}/images/gallery/gallery-2.png" alt="img">
-            </div>
-            <div class="gallery-img">
-                <img src="{{ asset('user/assets') }}/images/gallery/gallery-3.png" alt="img">
-            </div>
-            <div class="gallery-img">
-                <img src="{{ asset('user/assets') }}/images/gallery/gallery-4.png" alt="img">
-            </div>
-            <div class="gallery-img">
-                <img src="{{ asset('user/assets') }}/images/gallery/gallery-2.png" alt="img">
-            </div>
-            <div class="gallery-img">
-                <img src="{{ asset('user/assets') }}/images/gallery/gallery-3.png" alt="img">
-            </div>
-            <div class="gallery-img">
-                <img src="{{ asset('user/assets') }}/images/gallery/gallery-1.png" alt="img">
-            </div>
-        </div>
-    </div>
-    <!-- End-of Gallery -->
 @endsection

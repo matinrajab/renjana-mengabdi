@@ -97,7 +97,8 @@
                                                                 class="single">Sponsorship</a></li>
                                                     </ul>
                                                 </li>
-                                                <li class="single-list"><a href="/company" class="single">Company</a>
+                                                <li class="single-list"><a href="/company" class="single">About
+                                                        Us</a>
                                                 </li>
                                             </ul>
                                         </nav>
@@ -106,8 +107,8 @@
                                         <!-- Right button -->
                                         <ul class="cart">
                                             <li class="cart-list d-lg-inline-block">
-                                                <a href="donation.html" class="btn-primary-fill text-uppercase">
-                                                    <span class="pera">Donation</span>
+                                                <a href="/open-volunteers" class="btn-primary-fill text-uppercase">
+                                                    <span class="pera">explore now</span>
                                                 </a>
                                             </li>
                                         </ul>
@@ -261,7 +262,7 @@
                         @foreach ($banners as $banner)
                             <!-- Single Slider-->
                             <div class="image-container position-relative h-100">
-                                <a href={{ $banner->link }}>
+                                <a href={{ $banner->link }} target="_blank">
                                     <img class="w-100 h-100" src="files/slide_banner/{{ $banner->image }}"
                                         alt="img">
                                     <div class="image-overlay-text">
@@ -380,7 +381,8 @@
                                 <div class="donate-info">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="donate-info-title">
-                                            <h4 class="title text-capitalize"><a href="donation-details.html">
+                                            <h4 class="title text-capitalize"><a
+                                                    href="{{ route('events.show', $event) }}">
                                                     {{ $event->name }} </a></h4>
                                             <div class="subtitle indented">
                                                 {!! nl2br(substr($event->description, 0, 100)) !!}...
@@ -468,7 +470,7 @@
                         <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
                             <div class="single-blog h-calc">
                                 <div class="blog-img">
-                                    <a href="blog-details.html" class="img-fluid w-100 h-20">
+                                    <a href="{{ route('blogs.show', $blog) }}" class="img-fluid w-100 h-20">
                                         <img src="files/blog/{{ $blog->image }}" class="img-fluid w-100 h-20"
                                             alt="img">
                                     </a>
@@ -487,7 +489,8 @@
                                                         {{ DateFormatter::date($blog->publication_date) }}</p>
                                                 </div>
                                             </div>
-                                            <h4 class="title text-capitalize"><a href="blog-details.html">
+                                            <h4 class="title text-capitalize"><a
+                                                    href="{{ route('blogs.show', $blog) }}">
                                                     {{ $blog->title }} </a></h4>
                                             <div class="subtitle indented">
                                                 {!! nl2br(substr($blog->content, 0, 100)) !!}...
@@ -506,34 +509,6 @@
             </div>
         </section>
         <!-- End-of Blog -->
-
-        <!-- Gallery S t a r t -->
-        <div class="gallery-area">
-            <div class="gallery-slider d-flex">
-                <div class="gallery-img">
-                    <img src="{{ asset('user/assets') }}/images/gallery/gallery-1.png" alt="img">
-                </div>
-                <div class="gallery-img">
-                    <img src="{{ asset('user/assets') }}/images/gallery/gallery-2.png" alt="img">
-                </div>
-                <div class="gallery-img">
-                    <img src="{{ asset('user/assets') }}/images/gallery/gallery-3.png" alt="img">
-                </div>
-                <div class="gallery-img">
-                    <img src="{{ asset('user/assets') }}/images/gallery/gallery-4.png" alt="img">
-                </div>
-                <div class="gallery-img">
-                    <img src="{{ asset('user/assets') }}/images/gallery/gallery-2.png" alt="img">
-                </div>
-                <div class="gallery-img">
-                    <img src="{{ asset('user/assets') }}/images/gallery/gallery-3.png" alt="img">
-                </div>
-                <div class="gallery-img">
-                    <img src="{{ asset('user/assets') }}/images/gallery/gallery-1.png" alt="img">
-                </div>
-            </div>
-        </div>
-        <!-- End-of Gallery -->
     </main>
 
     <a href="https://wa.me/{{ $whatsappNumber }}">
@@ -561,7 +536,7 @@
                             <div class="main-menu d-none d-lg-block">
                                 <nav>
                                     <ul class="listing" id="navigation2">
-                                        <div class="single-list"><a href="index.html" class="single">Home</a>
+                                        <div class="single-list"><a href="/" class="single">Home</a>
                                         </div>
                                         <div class="single-list"><a href="donation.html" class="single">Donation</a>
                                         </div>

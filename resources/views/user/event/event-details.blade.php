@@ -12,7 +12,7 @@
             <div class="breadcrumb-text">
                 <nav aria-label="breadcrumb" class="breadcrumb-nav wow fadeInUp" data-wow-delay="0.0s">
                     <ul class="breadcrumb listing">
-                        <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
+                        <li class="breadcrumb-item single-list"><a href="/" class="single">Home</a></li>
                         <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
                                 class="single">Event</a></li>
                     </ul>
@@ -51,20 +51,9 @@
                                 <div class="blog-info">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="blog-info-title">
-                                            <h4 class="title text-capitalize">Event :</h4>
-                                            <p class="subtitle">{{ $event->name }}</p>
-                                            <div class="priceListing">
-                                                <ul class="listing">
-                                                    <li class="listItem">
-                                                        <p class="leftCap font-600">Location & Date</p>
-                                                    </li>
-                                                    <li class="listItem">
-                                                        <p class="subtitle">{{ "$event->location, " }}
-                                                            {{ DateFormatter::startToEnd($event->start_date, $event->end_date) }}
-                                                        </p>
-                                                    </li>
-                                                </ul>
-                                            </div>
+                                            <h4 class="title text-capitalize">Location & Date :</h4>
+                                            <p class="subtitle">{{ "$event->location, " }}
+                                                {{ DateFormatter::startToEnd($event->start_date, $event->end_date) }}</p>
                                             <a href="{{ $event->guide_book_link }}" class="btn donate-btn w-100 mt-10">Guide
                                                 Book</a>
                                             <a href="{{ $event->fully_special_funded_link }}"
@@ -103,7 +92,8 @@
                             <div class="single-blog h-calc">
                                 <div class="blog-img">
                                     <img src="{{ asset('files') }}/gallery/{{ $gallery->image }}" class="img-fluid w-100"
-                                        alt="img">
+                                        alt="img"
+                                        onclick="openModal('{{ asset('files') }}/gallery/{{ $gallery->image }}', '{{ $gallery->title }}')">
                                 </div>
                                 <div class="blog-info">
                                     <div class="d-flex justify-content-between align-items-center">
@@ -120,5 +110,27 @@
             </div>
         </section>
     @endif
+
+    <div id="myModal" class="modal">
+        <span class="close" onclick="closeModal()">&times;</span>
+        <img class="modal-content" id="img01">
+    </div>
     <!-- End-of Blog -->
 @endsection
+
+@push('scriptjs')
+    <script>
+        function openModal(src, title) {
+            var modal = document.getElementById("myModal");
+            var modalImg = document.getElementById("img01");
+
+            modal.style.display = "block";
+            modalImg.src = src;
+        }
+
+        function closeModal() {
+            var modal = document.getElementById("myModal");
+            modal.style.display = "none";
+        }
+    </script>
+@endpush

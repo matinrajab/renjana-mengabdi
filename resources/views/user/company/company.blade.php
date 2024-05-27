@@ -11,12 +11,12 @@
             <div class="breadcrumb-text">
                 <nav aria-label="breadcrumb" class="breadcrumb-nav wow fadeInUp" data-wow-delay="0.0s">
                     <ul class="breadcrumb listing">
-                        <li class="breadcrumb-item single-list"><a href="index.html" class="single">Home</a></li>
+                        <li class="breadcrumb-item single-list"><a href="/" class="single">Home</a></li>
                         <li class="breadcrumb-item single-list" aria-current="page"><a href="javascript:void(0)"
-                                class="single">Company</a></li>
+                                class="single">about us</a></li>
                     </ul>
                 </nav>
-                <h1 class="title wow fadeInUp" data-wow-delay="0.1s">Company</h1>
+                <h1 class="title wow fadeInUp" data-wow-delay="0.1s">about us</h1>
             </div>
         </div>
     </section>
@@ -28,7 +28,7 @@
             <div class="row g-24 justify-content-between">
                 <div class="col-xl-6 col-lg-6">
                     <div class="section-tittle mb-50">
-                        <h2 class="title mb-20 font-700">About Us</h2>
+                        <h5 class="title mb-20 font-700">About Us</h5>
                         <div class="pera indented">{!! nl2br($company->history) !!}</div>
                     </div>
                 </div>
@@ -59,8 +59,7 @@
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 view-wrapper">
                             <div class="single-event h-calc wow fadeInUp" data-wow-delay="0.0s">
                                 <div class="event-img position-relative">
-                                    <a href="event-details.html"> <img src="files/team/{{ $team->image }}"
-                                            class="img-fluid w-100" alt="img"> </a>
+                                    <img src="files/team/{{ $team->image }}" class="img-fluid w-100" alt="img">
                                 </div>
                                 <div class="event-info">
                                     <div class="d-flex justify-content-center align-items-center gap-6">
@@ -100,13 +99,13 @@
                         <div class="col-xl-3 col-lg-3 col-md-6 col-sm-12 view-wrapper">
                             <div class="single-blog h-calc wow fadeInUp" data-wow-delay="0.2s">
                                 <div class="position-relative">
-                                    <a href="blog-details.html"> <img src="files/achievement/{{ $achiev->image }}"
-                                            class="img-fluid w-100" alt="img"> </a>
+                                    <img src="files/achievement/{{ $achiev->image }}" class="img-fluid w-100"
+                                        alt="img">
                                 </div>
                                 <div class="blog-info">
                                     <div class="blog-info-title">
-                                        <h4 class="title text-capitalize"><a href="blog-details.html">
-                                                {{ $achiev->name }} </a></h4>
+                                        <h4 class="title text-capitalize">
+                                            {{ $achiev->name }}</h4>
                                         <p class="subtitle">{{ $achiev->description }}</p>
                                     </div>
                                 </div>
