@@ -15,6 +15,7 @@ class BlogController extends Controller
 
     public function show(Blog $blog)
     {
-        return view('user.blog.blog-details', compact('blog'));
+        $blogs = Blog::orderByDesc('id')->limit(5)->get();
+        return view('user.blog.blog-details', compact('blog', 'blogs'));
     }
 }
