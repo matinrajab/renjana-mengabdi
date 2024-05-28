@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('admin/assets') }}/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="{{ asset('admin/assets') }}/img/favicon.png">
+    <link rel="icon" type="image/png" href="{{ asset('user/assets') }}/images/icon/favicon.png">
     <title>@yield('title', 'Admin Renjana Mengabdi')</title>
     <!--     Fonts and icons     -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -29,11 +29,10 @@
         <div class="sidenav-header">
             <i class="fas fa-times p-3 cursor-pointer text-secondary opacity-5 position-absolute end-0 top-0 d-none d-xl-none"
                 aria-hidden="true" id="iconSidenav"></i>
-            <a class="navbar-brand m-0" href=" https://demos.creative-tim.com/soft-ui-dashboard/pages/dashboard.html "
-                target="_blank">
-                <img src="{{ asset('admin/assets') }}/img/logo-ct-dark.png" class="navbar-brand-img h-100"
-                    alt="main_logo">
-                <span class="ms-1 font-weight-bold">Renjana Mengabdi</span>
+            <a class="navbar-brand m-0" href="/admin/dashboard">
+                <img src="{{ asset('user/assets') }}/images/logo/logo-renjana-mengabdi.png"
+                    class="navbar-brand-img h-100" alt="main_logo">
+                <span class="ms-1 font-weight-bold">Admin Renjana Mengabdi</span>
             </a>
         </div>
         <hr class="horizontal dark mt-0">
@@ -342,9 +341,10 @@
                         <li class="breadcrumb-item text-sm"><a class="opacity-5 text-dark"
                                 href="javascript:;">Pages</a>
                         </li>
-                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">Tables</li>
+                        <li class="breadcrumb-item text-sm text-dark active" aria-current="page">{{ $page_name }}
+                        </li>
                     </ol>
-                    <h6 class="font-weight-bolder mb-0">Tables</h6>
+                    <h6 class="font-weight-bolder mb-0">{{ $page_name }}</h6>
                 </nav>
                 <div class="collapse navbar-collapse mt-sm-0 mt-2 me-md-0 me-sm-4" id="navbar">
                     <div class="ms-md-auto pe-md-3 d-flex align-items-center">

@@ -1,5 +1,6 @@
 @php
     $admin_slide_banner_page = true;
+    $page_name = 'Slide Banner';
 @endphp
 
 @extends('admin.layouts.app')

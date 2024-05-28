@@ -1,5 +1,6 @@
 @php
     $admin_testimonial_page = true;
+    $page_name = 'Testimonial';
 @endphp
 
 @extends('admin.layouts.app')

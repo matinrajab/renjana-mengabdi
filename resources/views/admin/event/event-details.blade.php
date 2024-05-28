@@ -1,5 +1,6 @@
 @php
     $admin_event_page = true;
+    $page_name = 'Event';
     use App\Helpers\DateFormatter;
 @endphp
 

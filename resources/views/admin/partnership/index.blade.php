@@ -1,5 +1,6 @@
 @php
     $admin_partnership_page = true;
+    $page_name = 'Partnership';
 @endphp
 
 @extends('admin.layouts.app')

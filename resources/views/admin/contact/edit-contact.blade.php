@@ -1,5 +1,6 @@
 @php
     $admin_contact_page = true;
+    $page_name = 'Contact';
 @endphp
 
 @extends('admin.layouts.app')

@@ -1,5 +1,6 @@
 @php
     $admin_testimonial_page = true;
+    $page_name = 'Testimonial';
 @endphp
 
 @extends('admin.layouts.app')
@@ -36,7 +37,7 @@
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
-                                <label for="profile_picture" class="form-control-label">Profile Picture (ratio: 1x1)</label>
+                                <label for="profile_picture" class="form-control-label">Profile Picture (ratio 1:1)</label>
                                 <input class="form-control" type="file" id="profile_picture" required
                                     name="profile_picture">
                             </div>

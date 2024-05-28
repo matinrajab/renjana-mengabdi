@@ -1,5 +1,6 @@
 @php
     $admin_company_page = true;
+    $page_name = 'Company';
 @endphp
 
 @extends('admin.layouts.app')

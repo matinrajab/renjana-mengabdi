@@ -14,23 +14,9 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description"
-        content="These template is suitable for charity , NGO , non-profit organization , donation , church or a fundraising website.">
-    <meta name="keywords"
-        content="charity, causes, donate, charity foundation, charity hub, charity theme, donations, non profit, fundraiser,social, ngo, non-profit, nonprofit, organization, volunteer">
-    <meta name="author" content="initTheme">
     <meta property="og:type" content="website">
     <meta property="og:title" content="Renjana Mengabdi Indonesia">
-    <meta property="og:site_name" content="donate Website">
-    <meta property="og:site_name" content="Charitfix">
-    <meta property="og:url" content="www.Charitfix.com">
-    <meta property="og:image" content="www.Charitfix.com">
-    <meta property="og:description"
-        content="These template is suitable for charity , NGO ,donate,fundraiser, non-profit organization">
     <meta name="twitter:title" content="Renjana Mengabdi Indonesia">
-    <meta name="twitter:description"
-        content="These template is suitable for charity , NGO ,donate,fundraiser, non-profit organization">
-    <meta name="twitter:image" content="www.Charitfix.com">
     <meta name="twitter:card" content="summary">
     <title>Renjana Mengabdi</title>
     <link rel="icon" type="image/x-icon" sizes="20x20" href="{{ asset('user/assets') }}/images/icon/favicon.png">
@@ -58,13 +44,13 @@
                                 <div class="menu-wrapper d-flex align-items-center justify-content-between">
                                     <div class="header-left d-flex align-items-center justify-content-between">
                                         <div class="logo logo-large light-logo">
-                                            <a href="index.html"><img
+                                            <a href="/"><img
                                                     src="{{ asset('user/assets') }}/images/logo/logo-renjana-mengabdi.png"
                                                     style="height:80px;" alt="logo"></a>
                                         </div>
                                         <!-- Logo Mobile-->
                                         <div class="logo logo-mobile light-logo">
-                                            <a href="index.html"><img
+                                            <a href="/"><img
                                                     src="{{ asset('user/assets') }}/images/icon/favicon.png"
                                                     alt="img"></a>
                                         </div>

@@ -1,6 +1,7 @@
 @php
     use App\Helpers\DateFormatter;
     $admin_open_volunteer_page = true;
+    $page_name = 'Open Volunteer';
 @endphp
 
 @extends('admin.layouts.app')

@@ -1,6 +1,7 @@
 @php
     use App\Helpers\DateFormatter;
     $admin_dashboard_page = true;
+    $page_name = 'Dashboard';
 @endphp
 
 @extends('admin.layouts.app')

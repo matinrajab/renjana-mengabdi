@@ -1,5 +1,6 @@
 @php
     $admin_blog_page = true;
+    $page_name = 'Blog';
 @endphp
 
 @extends('admin.layouts.app')
