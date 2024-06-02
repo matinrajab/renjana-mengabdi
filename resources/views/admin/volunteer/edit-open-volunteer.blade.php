@@ -1,6 +1,6 @@
 @php
     $admin_open_volunteer_page = true;
-    $page_name = 'Open Volunteer';
+    $page_name = 'Volunteer Project';
 @endphp
 
 @extends('admin.layouts.app')
@@ -10,7 +10,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0 px-3">
-                    <h6>Edit Open Volunteer</h6>
+                    <h6>Edit Volunteer Project</h6>
                 </div>
                 <div class="card-body pt-4 p-3">
                     <form action="/admin/open-volunteer/update/{{ $openVolunteer->id }}" method="POST"
@@ -87,7 +87,7 @@
                         </div>
                         <div>
                             <div class="form-group">
-                                <label for="image" class="form-control-label">Image</label>
+                                <label for="image" class="form-control-label">Image (max: 2 mb)</label>
                                 <div class="col-md-6 d-block shadow-xl border-radius-xl mb-4">
                                     <img src="{{ asset('files') }}/volunteer/{{ $openVolunteer->image }}"
                                         alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">

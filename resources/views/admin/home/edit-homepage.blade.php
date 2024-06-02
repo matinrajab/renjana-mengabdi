@@ -148,7 +148,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="image_1" class="form-control-label">Image 1</label>
+                            <label for="image_1" class="form-control-label">Image 1 (max: 2 mb)</label>
                             <div class="col-md-6 d-block shadow-xl border-radius-xl mb-4">
                                 <img src="{{ asset('files') }}/homepage/{{ $home->image_1 }}" alt="img-blur-shadow"
                                     class="img-fluid shadow border-radius-xl">
@@ -160,7 +160,7 @@
                             </div>
                         </div>
                         <div class="form-group">
-                            <label for="image_2" class="form-control-label">Image 2</label>
+                            <label for="image_2" class="form-control-label">Image 2 (max: 2 mb)</label>
                             <div class="col-md-6 d-block shadow-xl border-radius-xl mb-4">
                                 <img src="{{ asset('files') }}/homepage/{{ $home->image_2 }}" alt="img-blur-shadow"
                                     class="img-fluid shadow border-radius-xl">

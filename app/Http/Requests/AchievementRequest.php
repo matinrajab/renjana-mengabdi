@@ -24,7 +24,7 @@ class AchievementRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string', 'max:255'],
-            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg'],
+            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
         ];
     }
 }

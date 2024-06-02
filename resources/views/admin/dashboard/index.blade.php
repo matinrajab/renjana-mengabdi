@@ -213,7 +213,7 @@
                 <div class="card-header pb-0 p-3">
                     <div class="row">
                         <div class="col-6 d-flex align-items-center">
-                            <h6 class="mb-0">Open Volunteers</h6>
+                            <h6 class="mb-0">Volunteer Projects</h6>
                         </div>
                         <div class="col-6 text-end">
                             <a href="/admin/open-volunteer" class="btn btn-outline-primary btn-sm mb-0">View All</a>

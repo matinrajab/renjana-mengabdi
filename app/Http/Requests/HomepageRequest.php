@@ -33,8 +33,8 @@ class HomepageRequest extends FormRequest
             'volunteers_count' => ['required', 'integer'],
             'registrants_count' => ['required', 'integer'],
             'destinations_count' => ['required', 'integer'],
-            'image_1' => ['file', 'mimes:png,jpg,jpeg'],
-            'image_2' => ['file', 'mimes:png,jpg,jpeg'],
+            'image_1' => ['file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
+            'image_2' => ['file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
         ];
     }
 }

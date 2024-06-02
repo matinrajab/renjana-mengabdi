@@ -1,6 +1,6 @@
 @php
     $admin_open_volunteer_page = true;
-    $page_name = 'Open Volunteer';
+    $page_name = 'Volunteer Project';
 @endphp
 
 @extends('admin.layouts.app')
@@ -10,7 +10,7 @@
         <div class="col-12">
             <div class="card mb-4">
                 <div class="card-header pb-0 px-3">
-                    <h6>Add Open Volunteer</h6>
+                    <h6>Add Volunteer Project</h6>
                 </div>
                 <div class="card-body pt-4 p-3">
                     <form action="/admin/open-volunteer/store" method="POST" enctype="multipart/form-data">
@@ -79,7 +79,7 @@
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
-                                <label for="image" class="form-control-label">Image</label>
+                                <label for="image" class="form-control-label">Image (max: 2 mb)</label>
                                 <input class="form-control" type="file" id="image" required name="image">
                             </div>
                         </div>

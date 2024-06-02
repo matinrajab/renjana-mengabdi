@@ -48,7 +48,7 @@
                                     </div>
                                 </div>
                                 <h4 class="title"> {{ $blog->title }} </h4>
-                                <div class="subtitle indented"> {!! nl2br($blog->content) !!} </div>
+                                <div class="subtitle indented text-justify"> {!! nl2br($blog->content) !!} </div>
                                 <div class="divider"></div>
                             </div>
                         </div>

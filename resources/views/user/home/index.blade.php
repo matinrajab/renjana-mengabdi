@@ -67,8 +67,8 @@
                                             <ul class="listing" id="navigation">
                                                 <li class="single-list"><a href="/" class="single">Home</a>
                                                 </li>
-                                                <li class="single-list"><a href="/open-volunteers" class="single">Open
-                                                        Volunteer</a></li>
+                                                <li class="single-list"><a href="/open-volunteers"
+                                                        class="single">Volunteer Project</a></li>
                                                 <li class="single-list"><a href="/events" class="single">Event</a>
                                                 </li>
                                                 <li class="single-list"><a href="/blogs" class="single">Blog</a>
@@ -123,7 +123,7 @@
                                 <p class="key-title font-700 mb-20"> {{ $home->title }} </p>
                                 <h1 class="title font-700" data-animation="fadeInUp" data-delay=".0s">
                                     {{ $home->subtitle }} </h1>
-                                <p class="pera mx-width-780" data-animation="fadeInUp" data-delay=".2s">
+                                <p class="pera mx-width-780 text-justify" data-animation="fadeInUp" data-delay=".2s">
                                     {{ $home->description }} </p>
                                 <div class="d-flex gap-20 flex-wrap align-items-center">
                                     <a href="{{ $home->cta_url }}" class="btn-primary-fill pill-btn"
@@ -231,47 +231,6 @@
         </section>
         <!-- End-of helpful-->
 
-        <!-- gallery Area S t a r t -->
-        <section class="urgent-area bottom-padding">
-            <div class="container">
-                <div class="row justify-content-center">
-                    <div class="col-xl-7">
-                        <!-- Section Tittle -->
-                        <div class="section-tittle text-center mb-50">
-                            <span class="sub-tittle text-capitalize font-600">In urgent cases</span>
-                            <h2 class="title font-700">The best way is to find yourself</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-xxl-7 col-xl-8 col-lg-8 p-0 urgent-area-slide xs-p-12">
-                        @foreach ($banners as $banner)
-                            <!-- Single Slider-->
-                            <div class="image-container position-relative h-100">
-                                <a href={{ $banner->link }} target="_blank">
-                                    <img class="w-100 h-100" src="files/slide_banner/{{ $banner->image }}"
-                                        alt="img">
-                                    <div class="image-overlay-text">
-                                        <div class="flex gap-20 mb-10">
-                                            <div class="map flex gap-10">
-                                                <p class="pera"> {{ $banner->title }} </p>
-                                            </div>
-                                        </div>
-                                        <div class="overlay-title">
-                                            <h4 class="max-w-600" style="color: white">
-                                                {{ $banner->subtitle }}
-                                            </h4>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- End-of gallery area -->
-
         <!-- About us Area S t a r t -->
         <section class="about-area question-area">
             <div class="container">
@@ -280,7 +239,7 @@
                         <!-- Section Tittle -->
                         <div class="section-tittle mb-35">
                             <h2 class="title font-700 pb-15">About Us</h2>
-                            <div class="pera-subtitle mb-15 indented">{!! nl2br($home->about_us) !!}</div>
+                            <div class="pera-subtitle mb-15 indented text-justify">{!! nl2br($home->about_us) !!}</div>
                         </div>
                         <div class="accordion" id="accordionExample">
                             <div class="accordion-item">
@@ -345,14 +304,117 @@
         </section>
         <!-- End-of About us Area -->
 
-        <!-- Our event S t a r t-->
-        <section class="our-event donate-section section-padding2">
+        <!-- donate S t a r t -->
+        <section class="blog-section-two top-padding">
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-xl-7">
                         <!-- Section Tittle -->
                         <div class="section-tittle text-center mb-50">
-                            <span class="sub-tittle text-capitalize font-600">Our event</span>
+                            <span class="sub-tittle text-capitalize font-600">Our Volunteer Projects</span>
+                            <h2 class="title font-700">Our Latest Volunteer Projects</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    @foreach ($openVolunteers as $item)
+                        <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 view-wrapper">
+                            <div class="single-blog h-calc wow fadeInLeft" data-wow-delay="0.1s">
+                                <div class="blog-img position-relative">
+                                    <a href="{{ route('open-volunteers.show', $item) }}"> <img
+                                            src="files/volunteer/{{ $item->image }}" class="img-fluid w-100"
+                                            alt="img">
+                                    </a>
+                                    <div class="blog-badge">
+                                        <p class="subtitle">
+                                            {{ $item->volunteerType->name }}
+                                        </p>
+                                    </div>
+                                </div>
+                                <div class="blog-info">
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <div class="blog-info-title">
+                                            <div class="flex mb-15 gap-16 align-items-center">
+                                                <div class="user flex gap-10 align-items-center">
+                                                    <i class="ri-map-pin-line"></i>
+                                                    <p class="info"> {{ $item->location }} </p>
+                                                </div>
+                                                <div class="donate flex gap-10 align-items-center">
+                                                    <i class="ri-calendar-check-line"></i>
+                                                    <p class="info">
+                                                        {{ DateFormatter::startToEnd($item->start_date, $item->end_date) }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <h4 class="title text-capitalize"><a
+                                                    href="{{ route('open-volunteers.show', $item) }}">
+                                                    {{ $item->program_name }} </a></h4>
+                                            <div class="subtitle indented">
+                                                {!! nl2br(substr($item->description, 0, 100)) !!}...
+                                            </div>
+                                            <a href="{{ route('open-volunteers.show', $item) }}" class="imp-link">
+                                                More Details <i class="ri-arrow-right-line"></i>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </section>
+        <!-- End-of donate -->
+
+        <!-- gallery Area S t a r t -->
+        <section class="urgent-area top-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-50">
+                            <span class="sub-tittle text-capitalize font-600">In urgent cases</span>
+                            <h2 class="title font-700">The best way is to find yourself</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-center">
+                    <div class="col-xxl-7 col-xl-8 col-lg-8 p-0 urgent-area-slide xs-p-12">
+                        @foreach ($banners as $banner)
+                            <!-- Single Slider-->
+                            <div class="image-container position-relative h-100">
+                                <a href={{ $banner->link }} target="_blank">
+                                    <img class="w-100 h-100" src="files/slide_banner/{{ $banner->image }}"
+                                        alt="img">
+                                    <div class="image-overlay-text">
+                                        <div class="flex gap-20 mb-10">
+                                            <div class="map flex gap-10">
+                                                <p class="pera"> {{ $banner->title }} </p>
+                                            </div>
+                                        </div>
+                                        <div class="overlay-title">
+                                            <h4 class="max-w-600" style="color: white">
+                                                {{ $banner->subtitle }}
+                                            </h4>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- End-of gallery area -->
+
+        <!-- Our event S t a r t-->
+        <section class="our-event donate-section section-padding">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-xl-7">
+                        <!-- Section Tittle -->
+                        <div class="section-tittle text-center mb-50">
+                            <span class="sub-tittle text-capitalize font-600">Our events</span>
                             <h2 class="title font-700">Our Latest Events</h2>
                         </div>
                     </div>
@@ -517,7 +579,7 @@
                                     <a class="single" href="/">Home</a>
                                 </div>
                                 <div class="single-list">
-                                    <a class="single" href="/open-volunteers">Open Volunteer</a>
+                                    <a class="single" href="/open-volunteers">Volunteer Project</a>
                                 </div>
                                 <div class="single-list">
                                     <a class="single" href="/events">Latest Events</a>
@@ -565,7 +627,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-6">
                         <div class="footer-link">
-                            <h4 class="title">Open Volunteer</h4>
+                            <h4 class="title">Volunteer Project</h4>
                             <ul class="imp-link">
                                 @foreach ($lastVolunteers as $item)
                                     <div class="single-list">

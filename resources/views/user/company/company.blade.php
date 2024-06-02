@@ -29,7 +29,7 @@
                 <div class="col-xl-6 col-lg-6">
                     <div class="section-tittle mb-50">
                         <h5 class="title mb-20 font-700">About Us</h5>
-                        <div class="pera indented">{!! nl2br($company->history) !!}</div>
+                        <div class="pera indented text-justify">{!! nl2br($company->history) !!}</div>
                     </div>
                 </div>
                 <div class="col-xl-5 col-lg-6">
@@ -106,7 +106,7 @@
                                     <div class="blog-info-title">
                                         <h4 class="title text-capitalize">
                                             {{ $achiev->name }}</h4>
-                                        <p class="subtitle">{{ $achiev->description }}</p>
+                                        <p class="subtitle text-justify">{{ $achiev->description }}</p>
                                     </div>
                                 </div>
                             </div>
@@ -133,7 +133,7 @@
                 <div class="col-xl-3 pt-10">
                     <div class="single-terms mb-30">
                         <h5 class="title font-600">Address</h5>
-                        <p class="pera"> {{ $contact->address }} </p>
+                        <p class="pera text-justify"> {{ $contact->address }} </p>
                     </div>
                     <div class="single-terms mb-30">
                         <h5 class="title font-600">Contact</h5>

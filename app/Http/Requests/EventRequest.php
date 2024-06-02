@@ -31,7 +31,7 @@ class EventRequest extends FormRequest
             'guide_book_link' => ['required', 'string', 'max:255'],
             'fully_special_funded_link' => ['required', 'string', 'max:255'],
             'self_funded_link' => ['required', 'string', 'max:255'],
-            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg'],
+            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
         ];
     }
 }

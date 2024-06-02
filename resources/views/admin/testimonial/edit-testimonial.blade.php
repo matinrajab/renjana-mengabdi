@@ -41,7 +41,8 @@
                         </div>
                         <div>
                             <div class="form-group">
-                                <label for="profile_picture" class="form-control-label">Profile Picture (ratio 1:1)</label>
+                                <label for="profile_picture" class="form-control-label">Profile Picture (max: 2 mb, ratio
+                                    1:1)</label>
                                 <div class="col-md-6 d-block shadow-xl border-radius-xl mb-4">
                                     <img src="{{ asset('files') }}/testimonial/{{ $testimonial->profile_picture }}"
                                         alt="img-blur-shadow" class="img-fluid shadow border-radius-xl">

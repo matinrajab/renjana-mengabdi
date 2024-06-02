@@ -14036,6 +14036,10 @@ li {
     margin-bottom: 10px;
 }
 
+.text-justify {
+    text-align: justify;
+}
+
 .modal {
     display: none;
     position: fixed;

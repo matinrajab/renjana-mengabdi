@@ -17,7 +17,7 @@
                                 class="single">Volunteer</a></li>
                     </ul>
                 </nav>
-                <h1 class="title wow fadeInUp" data-wow-delay="0.1s">Open Volunteer Details</h1>
+                <h1 class="title wow fadeInUp" data-wow-delay="0.1s">Volunteer Project Details</h1>
             </div>
         </div>
     </section>
@@ -43,7 +43,7 @@
                         </div>
                         <div class="divider"></div>
                         <h4 class="title">Description</h4>
-                        <div class="pera indented">{!! nl2br($openVolunteer->description) !!}
+                        <div class="pera indented text-justify">{!! nl2br($openVolunteer->description) !!}
                         </div>
                         <h4 class="title mt-28">Location & Date</h4>
                         <div class="contact-list">
@@ -76,13 +76,13 @@
                     </div>
                     <div class="education-section">
                         <h4 class="title">Requirements</h4>
-                        <div class="education-box indented">
+                        <div class="education-box indented text-justify">
                             {!! nl2br($openVolunteer->requirements) !!}
                         </div>
                     </div>
                     <div class="education-section">
                         <h4 class="title">Application Process</h4>
-                        <div class="education-box indented">
+                        <div class="education-box indented text-justify">
                             {!! nl2br($openVolunteer->application_process) !!}
                         </div>
                     </div>

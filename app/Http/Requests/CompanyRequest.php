@@ -23,7 +23,7 @@ class CompanyRequest extends FormRequest
     {
         return [
             'history' => ['required', 'string'],
-            'image' => ['nullable', 'file', 'mimes:png,jpg,jpeg'],
+            'image' => ['nullable', 'file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
         ];
     }
 }

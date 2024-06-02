@@ -64,8 +64,8 @@
                                                     class="single {{ isset($home_page) ? 'active' : '' }}">Home</a>
                                             </li>
                                             <li class="single-list"><a href="{{ route('open-volunteers.index') }}"
-                                                    class="single {{ isset($volunteer_page) ? 'active' : '' }}">Open
-                                                    Volunteer</a></li>
+                                                    class="single {{ isset($volunteer_page) ? 'active' : '' }}">Volunteer
+                                                    Project</a></li>
                                             <li class="single-list"><a href="{{ route('events.index') }}"
                                                     class="single {{ isset($event_page) ? 'active' : '' }}">Event</a>
                                             </li>
@@ -130,7 +130,7 @@
                                     <a class="single" href="/">Home</a>
                                 </div>
                                 <div class="single-list">
-                                    <a class="single" href="/open-volunteers">Open Volunteer</a>
+                                    <a class="single" href="/open-volunteers">Volunteer Project</a>
                                 </div>
                                 <div class="single-list">
                                     <a class="single" href="/events">Latest Events</a>
@@ -178,7 +178,7 @@
                     </div>
                     <div class="col-xl-4 col-lg-6">
                         <div class="footer-link">
-                            <h4 class="title">Open Volunteer</h4>
+                            <h4 class="title">Volunteer Project</h4>
                             <ul class="imp-link">
                                 @foreach ($lastVolunteers as $item)
                                     <div class="single-list">

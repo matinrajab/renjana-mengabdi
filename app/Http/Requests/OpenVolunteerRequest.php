@@ -31,7 +31,7 @@ class OpenVolunteerRequest extends FormRequest
             'requirements' => ['required', 'string'],
             'application_process' => ['required', 'string'],
             'application_deadline' => ['required', 'date'],
-            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg'],
+            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
         ];
     }
 }

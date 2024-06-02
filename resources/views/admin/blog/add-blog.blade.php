@@ -44,7 +44,7 @@
                         </div>
                         <div class="col-md-7">
                             <div class="form-group">
-                                <label for="image" class="form-control-label">Image</label>
+                                <label for="image" class="form-control-label">Image (max: 2 mb)</label>
                                 <input class="form-control" type="file" id="image" required name="image">
                             </div>
                         </div>

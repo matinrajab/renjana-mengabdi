@@ -26,7 +26,7 @@ class BlogRequest extends FormRequest
             'author' => ['required', 'string', 'max:255'],
             'publication_date' => ['required', 'date'],
             'content' => ['required', 'string'],
-            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg'],
+            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
         ];
     }
 }

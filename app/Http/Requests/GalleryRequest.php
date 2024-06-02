@@ -24,7 +24,7 @@ class GalleryRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'max:255'],
             'caption' => ['required', 'string'],
-            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg'],
+            'image' => [$this->isMethod('post') ? 'required' : 'nullable', 'file', 'mimes:png,jpg,jpeg,webp,gif,svg', 'max:2048'],
         ];
     }
 }

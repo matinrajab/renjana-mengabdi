@@ -173,7 +173,7 @@
                                 </g>
                             </svg>
                         </div>
-                        <span class="nav-link-text ms-1">Open Volunteer</span>
+                        <span class="nav-link-text ms-1">Volunteer Project</span>
                     </a>
                 </li>
                 <li class="nav-item">
